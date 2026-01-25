@@ -305,7 +305,7 @@
           "blazers",
           "bridesmaid-dresses"
         ],
-        "layout_type": "grid",
+        "layout_type": "carousel",
         "columns": 4,
         "card_gap": 8,
         "show_arrows": true,
