@@ -1,0 +1,536 @@
+{%- liquid
+  assign layout_class = 'shop-the-look--' | append: section.settings.layout
+  assign product_blocks = section.blocks | where: 'type', 'product'
+  assign image_block = section.blocks | where: 'type', 'image' | first
+  assign product_count = product_blocks.size
+
+  if product_count == 0
+    assign product_count = 1
+  endif
+-%}
+
+<script
+  src="{{ 'shop-the-look.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<shop-the-look-section
+  class="
+    section
+    section--{{ section.settings.section_width }}
+    section-shop-the-look
+    {{ layout_class }}
+    color-{{ section.settings.color_scheme }}
+    spacing-style
+  "
+  data-testid="shop-the-look"
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+  "
+>
+  <div class="shop-the-look__grid">
+    {%- comment -%} Lifestyle Image (Left Side) {%- endcomment -%}
+    <div class="shop-the-look__image-column">
+      {%- if image_block != blank and image_block.settings.image != blank -%}
+        {% render 'image',
+          image: image_block.settings.image,
+          class: 'shop-the-look__lifestyle-image'
+        %}
+      {%- else -%}
+        <div class="shop-the-look__placeholder-image">
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Products & Content (Right Side) {%- endcomment -%}
+    <div class="shop-the-look__content-column">
+      {%- comment -%} Product Carousel {%- endcomment -%}
+      <div class="shop-the-look__products-wrapper">
+        {%- if product_blocks.size > 0 -%}
+          {%- capture product_slides -%}
+            {%- for block in product_blocks -%}
+              {%- liquid
+                assign product = block.settings.product
+                assign custom_image = block.settings.custom_image
+              -%}
+              <div
+                class="shop-the-look__product-slide"
+                ref="slides[]"
+                {{ block.shopify_attributes }}
+              >
+                {%- if custom_image != blank -%}
+                  {%- comment -%} Use custom uploaded image {%- endcomment -%}
+                  <a href="{{ product.url | default: '#' }}" class="shop-the-look__product-link">
+                    {% render 'image',
+                      image: custom_image,
+                      class: 'shop-the-look__product-image'
+                    %}
+                  </a>
+                {%- elsif product != blank and product.featured_image != blank -%}
+                  {%- comment -%} Use product featured image {%- endcomment -%}
+                  <a href="{{ product.url }}" class="shop-the-look__product-link">
+                    {% render 'image',
+                      image: product.featured_image,
+                      class: 'shop-the-look__product-image'
+                    %}
+                  </a>
+                {%- else -%}
+                  {%- comment -%} Placeholder {%- endcomment -%}
+                  <div class="shop-the-look__product-placeholder">
+                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          {%- endcapture -%}
+
+          {% render 'slideshow',
+            class: 'shop-the-look__carousel',
+            slides: product_slides,
+            slide_count: product_count,
+            show_arrows: section.settings.show_arrows,
+            icon_style: 'arrow',
+            icon_shape: 'none',
+            infinite: false,
+            auto_hide_controls: true
+          %}
+          {% render 'slideshow-controls',
+            style: 'dots',
+            item_count: product_count,
+            class: 'shop-the-look__pagination'
+          %}
+        {%- else -%}
+          <div class="shop-the-look__empty-products">
+            <p>Add product blocks to showcase this look</p>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Text Content (Below Products) {%- endcomment -%}
+      {%- if section.settings.subheading != blank or section.settings.heading != blank or section.settings.description != blank or section.settings.button_label != blank -%}
+        <div class="shop-the-look__content">
+          {%- if section.settings.subheading != blank -%}
+            <span class="shop-the-look__subheading">{{ section.settings.subheading }}</span>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="shop-the-look__heading h2">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.description != blank -%}
+            <div class="shop-the-look__description rte">{{ section.settings.description }}</div>
+          {%- endif -%}
+          {%- if section.settings.button_label != blank -%}
+            <div class="shop-the-look__buttons">
+              <a
+                href="{{ section.settings.button_link }}"
+                class="shop-the-look__button button-unstyled"
+              >
+                {{ section.settings.button_label }}
+              </a>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</shop-the-look-section>
+
+{% stylesheet %}
+  /* ==========================================================================
+     Section: Shop The Look
+     ========================================================================== */
+
+  .section-shop-the-look {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Grid Layout
+     ========================================================================== */
+
+  .shop-the-look__grid {
+    display: grid;
+    gap: var(--spacing-lg, 24px);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'image'
+      'content';
+  }
+
+  @media screen and (min-width: 750px) {
+    .shop-the-look__grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'image content';
+      gap: var(--spacing-xl, 32px);
+      align-items: start;
+    }
+
+    .shop-the-look--products-right .shop-the-look__grid {
+      grid-template-areas: 'content image';
+    }
+  }
+
+  /* Image Column (Left)
+     ========================================================================== */
+
+  .shop-the-look__image-column {
+    grid-area: image;
+  }
+
+  .shop-the-look__lifestyle-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .shop-the-look__placeholder-image {
+    aspect-ratio: 3 / 4;
+    background: var(--color-background-secondary, #f4f4f4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shop-the-look__placeholder-image .placeholder-svg {
+    width: 50%;
+    height: auto;
+    opacity: 0.5;
+  }
+
+  /* Content Column (Right)
+     ========================================================================== */
+
+  .shop-the-look__content-column {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg, 24px);
+  }
+
+  /* Products Carousel
+     ========================================================================== */
+
+  .shop-the-look__products-wrapper {
+    position: relative;
+  }
+
+  .shop-the-look__carousel {
+    position: relative;
+  }
+
+  .shop-the-look__carousel slideshow-slides {
+    --slideshow-gap: 16px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .shop-the-look__product-slide {
+    flex: 0 0 auto;
+    width: 45%;
+    scroll-snap-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .shop-the-look__product-slide {
+      width: 35%;
+    }
+  }
+
+  .shop-the-look__product-link {
+    display: block;
+  }
+
+  .shop-the-look__product-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .shop-the-look__product-placeholder {
+    aspect-ratio: 2 / 3;
+    background: var(--color-background-secondary, #f4f4f4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shop-the-look__product-placeholder .placeholder-svg {
+    width: 60%;
+    height: auto;
+    opacity: 0.5;
+  }
+
+  /* Pagination
+     ========================================================================== */
+
+  .shop-the-look__pagination {
+    justify-content: flex-start;
+    padding-block-start: var(--spacing-sm, 8px);
+  }
+
+  /* Text Content
+     ========================================================================== */
+
+  .shop-the-look__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm, 12px);
+    padding-block-start: var(--spacing-md, 16px);
+    text-align: center;
+  }
+
+  .shop-the-look__subheading {
+    font-size: var(--font-size-xs, 10px);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-foreground-secondary, #6e6e6e);
+  }
+
+  .shop-the-look__heading {
+    margin: 0;
+    font-size: var(--font-size-xl, 28px);
+    font-weight: 400;
+  }
+
+  .shop-the-look__description {
+    color: var(--color-foreground-secondary, #6e6e6e);
+    font-size: var(--font-size-sm, 14px);
+    line-height: 1.6;
+  }
+
+  .shop-the-look__description p {
+    margin: 0;
+  }
+
+  .shop-the-look__buttons {
+    padding-block-start: var(--spacing-xs, 8px);
+  }
+
+  .shop-the-look__button {
+    font-size: var(--font-size-xs, 11px);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* Empty State
+     ========================================================================== */
+
+  .shop-the-look__empty-products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: var(--spacing-lg, 24px);
+    background: var(--color-background-secondary, #f4f4f4);
+    text-align: center;
+  }
+
+  .shop-the-look__empty-products p {
+    color: var(--color-foreground-secondary, #6e6e6e);
+    margin: 0;
+  }
+
+  /* Mobile Adjustments
+     ========================================================================== */
+
+  @media screen and (max-width: 749px) {
+    .shop-the-look__buttons {
+      display: flex;
+      justify-content: center;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.shop_the_look",
+  "tag": "section",
+  "class": "section-shop-the-look",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "product",
+      "name": "t:names.product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "t:settings.product"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom image",
+          "info": "Override the product image with a custom image"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Lifestyle image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:settings.image"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.text"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:settings.subheading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:settings.heading",
+      "default": "Shop The Look"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:settings.description"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:settings.button_label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:settings.button_link"
+    },
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:settings.layout",
+      "options": [
+        {
+          "value": "products-left",
+          "label": "Image left, products right"
+        },
+        {
+          "value": "products-right",
+          "label": "Products left, image right"
+        }
+      ],
+      "default": "products-left"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "t:content.carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "t:settings.show_arrows",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:content.colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.shop_the_look",
+      "category": "t:categories.products",
+      "settings": {
+        "heading": "Holiday Dress Code",
+        "description": "<p>Bold bursts of red go hand in hand with the holidays. Whether you're attending the annual end-of-year office party or hosting Christmas lunch, our latest arrivals cater to every celebration.</p>",
+        "button_label": "EXPLORE THE COLLECTION",
+        "layout": "products-left",
+        "section_width": "page-width",
+        "show_arrows": false,
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
