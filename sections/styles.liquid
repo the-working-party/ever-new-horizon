@@ -185,7 +185,7 @@
   }
 
   .section-styles__items {
-    /* Mobile: horizontal scroll */
+    /* Flexbox with horizontal scroll - matches Products section pattern */
     display: flex;
     gap: var(--styles-gap, 8px);
     overflow-x: auto;
@@ -196,24 +196,16 @@
       display: none;
     }
 
-    /* Desktop: CSS Grid for automatic sizing */
     @media screen and (min-width: 750px) {
-      display: grid;
-      grid-template-columns: repeat(var(--styles-columns, 4), 1fr);
       flex: 1;
       min-width: 0;
-      overflow: visible;
     }
   }
 
   .section-styles__items--carousel {
-    /* Mobile: scrollable */
-    overflow-x: auto;
     scroll-behavior: smooth;
 
-    /* Desktop: flexbox for carousel scrolling */
     @media screen and (min-width: 750px) {
-      display: flex;
       overflow: hidden;
     }
   }
@@ -225,23 +217,15 @@
     text-decoration: none;
     color: inherit;
     scroll-snap-align: start;
-
-    /* Mobile: fixed width for horizontal scroll */
     flex-shrink: 0;
+
+    /* Mobile sizes */
     width: 124px;
 
     @media screen and (min-width: 750px) {
-      /* Desktop grid: tiles auto-size via grid */
-      width: auto;
-      gap: var(--gap-md, 16px);
-    }
-  }
-
-  .section-styles__items--carousel .section-styles__tile {
-    @media screen and (min-width: 750px) {
-      /* Carousel: fixed width for scrolling */
+      /* Fixed width like Products section */
       width: 224px;
-      flex-shrink: 0;
+      gap: var(--gap-md, 16px);
     }
   }
 
