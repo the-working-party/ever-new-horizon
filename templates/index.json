@@ -329,11 +329,11 @@
           "curve-occasionwear",
           "curve-pants-skirts"
         ],
-        "layout_type": "grid",
+        "layout_type": "carousel",
         "columns": 6,
         "gap": 8,
         "image_ratio": "100 / 133",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "color_scheme": "",
         "padding-block-start": 48,
         "padding-block-end": 48
