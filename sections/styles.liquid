@@ -258,16 +258,6 @@
     color: var(--color-foreground, #000);
   }
 
-  /* Hide tiles beyond visible count on mobile */
-  @media screen and (max-width: 749px) {
-    .section-styles__tile:nth-child(n+4) {
-      display: none;
-    }
-
-    .section-styles__items--carousel .section-styles__tile:nth-child(n+4) {
-      display: flex;
-    }
-  }
 {% endstylesheet %}
 
 {% schema %}
