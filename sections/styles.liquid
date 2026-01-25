@@ -196,6 +196,8 @@
     }
 
     @media screen and (width >= 750px) {
+      flex: 1;
+      min-width: 0;
       overflow: visible;
     }
   }
@@ -205,7 +207,6 @@
     scroll-behavior: smooth;
 
     @media screen and (width >= 750px) {
-      max-width: calc(var(--styles-columns) * 224px + (var(--styles-columns) - 1) * var(--styles-gap));
       overflow: hidden;
     }
   }
