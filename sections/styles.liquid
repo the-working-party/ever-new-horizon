@@ -92,15 +92,18 @@
             assign has_collection = true
           endif
         -%}
+        {%- liquid
+          assign collection_image = collection.image | default: collection.featured_image
+        -%}
         <a
           href="{{ collection.url | default: '#' }}"
           class="section-styles__tile"
           {% unless has_collection %}aria-hidden="true"{% endunless %}
         >
           <div class="section-styles__image">
-            {%- if has_collection and collection.image != blank -%}
+            {%- if has_collection and collection_image != blank -%}
               {{
-                collection.image
+                collection_image
                 | image_url: width: 600
                 | image_tag:
                   loading: 'lazy',
