@@ -61,19 +61,19 @@
       {%- if is_carousel -%}
         <div class="section-styles__nav">
           <button
-            class="section-styles__arrow section-styles__arrow--prev"
+            class="section-styles__arrow section-styles__arrow--prev flip-x"
             aria-label="{{ 'accessibility.slideshow_previous' | t }}"
             data-action="prev"
             disabled
           >
-            {% render 'icon', icon: 'chevron_left', size: '24px' %}
+            <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
           </button>
           <button
             class="section-styles__arrow section-styles__arrow--next"
             aria-label="{{ 'accessibility.slideshow_next' | t }}"
             data-action="next"
           >
-            {% render 'icon', icon: 'chevron_right', size: '24px' %}
+            <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
           </button>
         </div>
       {%- endif -%}
@@ -220,6 +220,23 @@
 
   .section-styles__arrow:hover:not(:disabled) {
     opacity: 0.7;
+  }
+
+  .section-styles__arrow .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+  }
+
+  .section-styles__arrow .svg-wrapper svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .section-styles__arrow.flip-x .svg-wrapper {
+    transform: scaleX(-1);
   }
 
   .section-styles__scroller {
