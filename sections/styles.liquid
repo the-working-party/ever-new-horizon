@@ -138,7 +138,7 @@
     flex-direction: column;
     gap: var(--gap-lg, 24px);
 
-    @media screen and (width >= 750px) {
+    @media screen and (min-width: 750px) {
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
@@ -150,7 +150,7 @@
     flex-direction: column;
     gap: var(--gap-lg, 24px);
 
-    @media screen and (width >= 750px) {
+    @media screen and (min-width: 750px) {
       flex-shrink: 0;
       max-width: 448px;
     }
@@ -185,6 +185,7 @@
   }
 
   .section-styles__items {
+    /* Mobile: horizontal scroll */
     display: flex;
     gap: var(--styles-gap, 8px);
     overflow-x: auto;
@@ -195,7 +196,10 @@
       display: none;
     }
 
-    @media screen and (width >= 750px) {
+    /* Desktop: CSS Grid for automatic sizing */
+    @media screen and (min-width: 750px) {
+      display: grid;
+      grid-template-columns: repeat(var(--styles-columns, 4), 1fr);
       flex: 1;
       min-width: 0;
       overflow: visible;
@@ -203,16 +207,18 @@
   }
 
   .section-styles__items--carousel {
+    /* Mobile: scrollable */
     overflow-x: auto;
     scroll-behavior: smooth;
 
-    @media screen and (width >= 750px) {
+    /* Desktop: flexbox for carousel scrolling */
+    @media screen and (min-width: 750px) {
+      display: flex;
       overflow: hidden;
     }
   }
 
   .section-styles__tile {
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: var(--gap-sm, 12px);
@@ -220,12 +226,22 @@
     color: inherit;
     scroll-snap-align: start;
 
-    /* Mobile sizes */
+    /* Mobile: fixed width for horizontal scroll */
+    flex-shrink: 0;
     width: 124px;
 
-    @media screen and (width >= 750px) {
-      width: 224px;
+    @media screen and (min-width: 750px) {
+      /* Desktop grid: tiles auto-size via grid */
+      width: auto;
       gap: var(--gap-md, 16px);
+    }
+  }
+
+  .section-styles__items--carousel .section-styles__tile {
+    @media screen and (min-width: 750px) {
+      /* Carousel: fixed width for scrolling */
+      width: 224px;
+      flex-shrink: 0;
     }
   }
 
