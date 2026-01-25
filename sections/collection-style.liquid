@@ -1,0 +1,434 @@
+{%- doc -%}
+  Collection Style Section
+
+  A two-column layout with heading and carousel navigation on the left,
+  collection cards on the right. Supports grid and carousel layouts.
+
+  @section
+  @name Collection Style
+  @class section-collection-style
+
+  @since 1.0.0
+{%- enddoc -%}
+
+{%- liquid
+  assign section_collections = section.settings.collection_list
+  assign layout_type = section.settings.layout_type | default: 'carousel'
+  assign columns = section.settings.columns | default: 4
+  assign card_gap = section.settings.card_gap | default: 8
+  assign heading_width = section.settings.heading_width | default: 448
+
+  # Calculate max items based on layout
+  if section_collections != blank
+    assign max_items = section_collections.count
+  else
+    assign max_items = columns | plus: 2
+  endif
+
+  # Create placeholder collections if none selected
+  if section_collections == blank
+    for i in (1..max_items)
+      assign section_collections = section_collections | append: ', '
+    endfor
+    assign section_collections = section_collections | split: ','
+  endif
+
+  # Determine if we show arrows
+  assign show_arrows = false
+  if layout_type == 'carousel' and section.settings.show_arrows
+    assign show_arrows = true
+  endif
+-%}
+
+{%- comment -%} Capture blocks content once (Shopify only allows one content_for per section) {%- endcomment -%}
+{%- capture header_blocks -%}
+  {%- content_for 'blocks' -%}
+{%- endcapture -%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="
+    section
+    section--{{ section.settings.section_width }}
+    section-collection-style
+    color-{{ section.settings.color_scheme }}
+    spacing-style
+  "
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+    --collection-style-heading-width: {{ heading_width }}px;
+    --collection-style-card-gap: {{ card_gap }}px;
+    --collection-style-columns: {{ columns }};
+  "
+  data-testid="collection-style"
+>
+  {%- comment -%} Build collection cards {%- endcomment -%}
+  {%- capture list_items -%}
+    {%- for collection in section_collections limit: max_items -%}
+      <div class="collection-style__card">
+        {%- render 'collection-style-card',
+          collection: collection,
+          section: section
+        -%}
+      </div>
+      {%- unless forloop.last -%}
+        <!--@list/split-->
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- liquid
+    assign list_items_array = list_items | strip | split: '<!--@list/split-->'
+  -%}
+
+  {%- comment -%} Build carousel slides {%- endcomment -%}
+  {%- capture slides -%}
+    {%- for item in list_items_array limit: list_items_array.size -%}
+      {%- render 'slideshow-slide',
+        index: forloop.index0,
+        children: item,
+        class: 'collection-style__slide'
+      -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- if layout_type == 'carousel' -%}
+    <slideshow-component
+      ref="collectionStyle"
+      class="collection-style__wrapper"
+      initial-slide="0"
+      infinite
+    >
+      <div class="collection-style__content">
+        {%- comment -%} Left column: heading + arrows {%- endcomment -%}
+        <div class="collection-style__header">
+          {{ header_blocks }}
+
+          {%- if show_arrows -%}
+            <slideshow-arrows class="collection-style__arrows" position="left">
+              {%- render 'slideshow-arrow',
+                action: 'previous',
+                icon_style: section.settings.icon_style,
+                icon_shape: 'none'
+              -%}
+              {%- render 'slideshow-arrow',
+                action: 'next',
+                icon_style: section.settings.icon_style,
+                icon_shape: 'none'
+              -%}
+            </slideshow-arrows>
+          {%- endif -%}
+        </div>
+
+        {%- comment -%} Right column: cards carousel {%- endcomment -%}
+        <slideshow-container ref="slideshowContainer" class="collection-style__cards">
+          <slideshow-slides tabindex="-1" ref="scroller">
+            {{ slides }}
+          </slideshow-slides>
+        </slideshow-container>
+      </div>
+    </slideshow-component>
+
+  {%- else -%}
+    {%- comment -%} Grid layout (no carousel) {%- endcomment -%}
+    <div class="collection-style__wrapper">
+      <div class="collection-style__content">
+        <div class="collection-style__header">
+          {{ header_blocks }}
+        </div>
+
+        <div class="collection-style__cards collection-style__cards--grid">
+          {{ list_items }}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .section-collection-style {
+    container-type: inline-size;
+  }
+
+  .collection-style__wrapper {
+    width: 100%;
+  }
+
+  .collection-style__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg, 24px);
+  }
+
+  .collection-style__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg, 24px);
+    width: 100%;
+  }
+
+  .collection-style__arrows {
+    display: flex;
+    gap: var(--spacing-md, 16px);
+    position: static;
+  }
+
+  .collection-style__arrows .slideshow-control {
+    position: static;
+    transform: none;
+  }
+
+  .collection-style__cards {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .collection-style__cards--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--collection-style-card-gap, 8px);
+  }
+
+  .collection-style__card {
+    flex-shrink: 0;
+  }
+
+  slideshow-slides {
+    gap: var(--collection-style-card-gap, 8px);
+  }
+
+  .collection-style__slide {
+    flex-shrink: 0;
+    width: calc((100% - (var(--collection-style-card-gap, 8px) * (var(--collection-style-columns, 4) - 1))) / var(--collection-style-columns, 4));
+  }
+
+  /* Desktop styles */
+  @media screen and (width >= 990px) {
+    .collection-style__content {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--spacing-xl, 32px);
+    }
+
+    .collection-style__header {
+      width: var(--collection-style-heading-width, 448px);
+      flex-shrink: 0;
+    }
+
+    .collection-style__cards {
+      width: calc(100% - var(--collection-style-heading-width, 448px) - var(--spacing-xl, 32px));
+    }
+
+    .collection-style__cards--grid {
+      grid-template-columns: repeat(var(--collection-style-columns, 4), 1fr);
+    }
+  }
+
+  /* Mobile adjustments */
+  @media screen and (width < 750px) {
+    .collection-style__cards--grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-xs, 4px);
+    }
+
+    .collection-style__slide {
+      width: 124px;
+    }
+
+    slideshow-slides {
+      gap: var(--spacing-xs, 4px);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.collection_style",
+  "tag": "section",
+  "class": "section-collection-style",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "spacer"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "t:settings.collection_list"
+    },
+    {
+      "type": "header",
+      "content": "t:content.cards_layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "t:settings.layout_type",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:options.grid"
+        },
+        {
+          "value": "carousel",
+          "label": "t:options.carousel"
+        }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:settings.columns",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "t:content.carousel_navigation",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "t:settings.show_arrows",
+      "default": true,
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "icon_style",
+      "label": "t:settings.icon",
+      "options": [
+        {
+          "value": "chevron",
+          "label": "t:options.chevrons"
+        },
+        {
+          "value": "arrow",
+          "label": "t:options.arrows"
+        }
+      ],
+      "default": "chevron",
+      "visible_if": "{{ section.settings.show_arrows and section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.section_layout"
+    },
+    {
+      "type": "range",
+      "id": "heading_width",
+      "label": "t:settings.heading_width",
+      "info": "t:info.heading_width_desktop",
+      "min": 200,
+      "max": 600,
+      "step": 8,
+      "unit": "px",
+      "default": 448
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.collection_style",
+      "category": "t:categories.collections",
+      "settings": {
+        "layout_type": "carousel",
+        "columns": 4,
+        "card_gap": 8,
+        "show_arrows": true,
+        "icon_style": "chevron",
+        "heading_width": 448,
+        "section_width": "page-width",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover timeless style<br>designed for modern women.</p>",
+            "type_preset": "h4"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
