@@ -58,6 +58,11 @@
     <div class="section-styles__header">
       {%- content_for 'blocks' -%}
 
+      {%- comment -%} DEBUG: Show current mode {%- endcomment -%}
+      <div style="padding: 8px; background: #eee; font-size: 12px; margin-bottom: 16px;">
+        Mode: <strong>{{ layout_type }}</strong> | is_carousel: {{ is_carousel }}
+      </div>
+
       {%- if is_carousel -%}
         <div class="section-styles__nav">
           <button
