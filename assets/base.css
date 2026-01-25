@@ -1478,10 +1478,12 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   font-family: var(--font-paragraph--family);
   font-style: var(--font-paragraph--style);
   font-size: var(--font-paragraph--size);
+  text-decoration: underline;
 }
 
 .button-unstyled:hover {
   background-color: inherit;
+  text-decoration: none;
 }
 
 .button-unstyled--with-icon {

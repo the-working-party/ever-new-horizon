@@ -316,11 +316,56 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "shop_the_look_BxN7kW": {
+      "type": "shop-the-look",
+      "blocks": {
+        "image_Ht4mKp": {
+          "type": "image",
+          "settings": {}
+        },
+        "product_Wv3xYm": {
+          "type": "product",
+          "settings": {}
+        },
+        "product_Jk9pNs": {
+          "type": "product",
+          "settings": {}
+        },
+        "product_Fg2tRw": {
+          "type": "product",
+          "settings": {}
+        },
+        "product_Xm4nPq": {
+          "type": "product",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image_Ht4mKp",
+        "product_Wv3xYm",
+        "product_Jk9pNs",
+        "product_Fg2tRw",
+        "product_Xm4nPq"
+      ],
+      "name": "t:names.shop_the_look",
+      "settings": {
+        "heading": "Holiday Dress Code",
+        "description": "<p>Bold bursts of red go hand in hand with the holidays. Whether you're attending the annual end-of-year office party or hosting Christmas lunch, our latest arrivals cater to every celebration.</p>",
+        "button_label": "EXPLORE THE COLLECTION",
+        "layout": "products-left",
+        "section_width": "page-width",
+        "show_arrows": false,
+        "color_scheme": "",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
     "product_list_fa6P9H",
-    "collection_style_test"
+    "collection_style_test",
+    "shop_the_look_BxN7kW"
   ]
 }
