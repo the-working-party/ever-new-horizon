@@ -322,7 +322,12 @@
           "womens-work-dresses",
           "evening-dresses",
           "evening-tops",
-          "fall-clothing-edit"
+          "fall-clothing-edit",
+          "curve",
+          "curve-dresses",
+          "curve-jackets-coats",
+          "curve-occasionwear",
+          "curve-pants-skirts"
         ],
         "layout_type": "grid",
         "columns": 5,
