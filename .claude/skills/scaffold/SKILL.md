@@ -225,8 +225,182 @@ The scaffold is complete when:
 - Theme Check passes with zero CRITICAL/HIGH errors
 - Client documentation created (if requested)
 
+## Shopify CLI Integration
+
+The scaffold workflow integrates with Shopify CLI for theme development, testing, and deployment.
+
+### Authentication
+
+Before using CLI commands, ensure you're logged in:
+
+```bash
+# Login to Shopify
+shopify auth login
+
+# Verify login status
+shopify auth logout  # if needed to switch accounts
+```
+
+### Theme Development Commands
+
+#### Start Development Server
+
+```bash
+# Start dev server with live reload
+shopify theme dev
+
+# With specific store
+shopify theme dev --store your-store.myshopify.com
+
+# With specific theme
+shopify theme dev --theme 123456789
+```
+
+The dev server provides:
+- Live preview at `http://localhost:9292` (default)
+- Hot reload on file changes
+- Access to theme editor
+
+#### Theme Check (Linting)
+
+Run Theme Check to validate code against Shopify standards:
+
+```bash
+# Check entire theme
+shopify theme check
+
+# Check specific files
+shopify theme check sections/hero-banner.liquid
+
+# Auto-fix where possible
+shopify theme check --auto-correct
+```
+
+**Integration Point**: Run after each build task to validate CRITICAL/HIGH rules.
+
+#### Pull/Push Themes
+
+```bash
+# Pull theme from store
+shopify theme pull
+
+# Pull specific theme
+shopify theme pull --theme 123456789
+
+# Push local changes to theme
+shopify theme push
+
+# Push to specific theme
+shopify theme push --theme 123456789
+
+# Push and publish
+shopify theme push --publish
+```
+
+#### List Themes
+
+```bash
+# List all themes in store
+shopify theme list
+```
+
+Output shows theme ID, name, and status (live/unpublished/development).
+
+### Workflow Integration
+
+#### During Development (Step 5)
+
+1. Start dev server before build tasks:
+   ```bash
+   shopify theme dev --store {{store_url}}
+   ```
+
+2. After each Liquid/CSS/JS task, changes auto-reload
+
+3. Run Theme Check after completion:
+   ```bash
+   shopify theme check sections/{{section_name}}.liquid
+   ```
+
+#### During QA Testing (Task #11)
+
+1. Verify dev server is running
+2. Test in theme customizer via dev preview URL
+3. Run full Theme Check:
+   ```bash
+   shopify theme check
+   ```
+
+#### After Completion
+
+1. Push to development theme:
+   ```bash
+   shopify theme push --theme-editor-sync
+   ```
+
+2. Share preview with client:
+   ```bash
+   shopify theme share
+   ```
+
+3. When approved, publish:
+   ```bash
+   shopify theme publish --theme 123456789
+   ```
+
+### Additional CLI Commands
+
+| Command                 | Use Case                            |
+| ----------------------- | ----------------------------------- |
+| `shopify theme info`    | Show current theme environment      |
+| `shopify theme console` | Interactive Liquid REPL for testing |
+| `shopify theme package` | Create ZIP for manual upload        |
+| `shopify theme open`    | Open theme preview in browser       |
+| `shopify theme rename`  | Rename theme in store               |
+| `shopify theme delete`  | Remove theme from store             |
+| `shopify theme profile` | Analyze Liquid performance          |
+
+### Environment Setup
+
+Add to your project's `.env` or configure in CLI:
+
+```bash
+# Set default store
+shopify config set store your-store.myshopify.com
+
+# Or use environment variable
+export SHOPIFY_FLAG_STORE=your-store.myshopify.com
+```
+
+### CLI in Agent Tasks
+
+Agents can execute CLI commands via Bash tool:
+
+```json
+{
+  "qa-tester": {
+    "tools": ["Bash", "mcp__playwright__*"],
+    "cli_commands": [
+      "shopify theme check",
+      "shopify theme info"
+    ]
+  }
+}
+```
+
+Example agent usage:
+```bash
+# Run theme check and capture output
+shopify theme check --output json > theme-check-results.json
+
+# Check specific section
+shopify theme check sections/{{section_name}}.liquid blocks/*.liquid
+```
+
 ## Reference Files
 
 - [Template Schema](../templates/template-schema.json)
 - [New Section Template](../templates/shopify-section-new.json)
 - [TWP Best Practices](/Users/calwilson/business/Obsidian/Shopify%20Theme%20Best%20Practices.md)
+- [Shopify CLI Theme Commands](https://shopify.dev/docs/api/shopify-cli/theme)
+- [Shopify CLI General Commands](https://shopify.dev/docs/api/shopify-cli/general-commands)
