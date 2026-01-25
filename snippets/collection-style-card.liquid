@@ -26,9 +26,8 @@
 
 <a
   class="collection-style-card"
-  {% unless onboarding %}
-    href="{{ collection.url }}"
-  {% endunless %}
+  href="{{ collection.url | default: '#' }}"
+  {% if onboarding %}aria-disabled="true"{% endif %}
   style="--collection-style-card-title-gap: {{ title_gap }}px;"
 >
   <div class="collection-style-card__image">
