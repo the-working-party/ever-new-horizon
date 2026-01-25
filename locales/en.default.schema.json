@@ -416,6 +416,7 @@
     // UI component name for step-by-step process display
     "steps": "Steps",
     "styles": "Styles",
+    "styles_carousel": "Styles: Carousel",
     "subheading": "Subheading",
     "submit_button": "Submit button",
     "summary": "Summary",
