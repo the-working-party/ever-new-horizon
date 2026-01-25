@@ -30,14 +30,6 @@
   if layout_type == 'carousel'
     assign is_carousel = true
   endif
-
-  if section.settings.section_width == 'page-width'
-    assign slideshow_gutters = 'start end'
-    assign gutter_style = '--gutter-slide-width: var(--util-page-margin-offset);'
-  else
-    assign slideshow_gutters = null
-    assign gutter_style = '--gutter-slide-width: 0px;'
-  endif
 -%}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -58,7 +50,10 @@
   "
   data-testid="styles-{{ section.id }}"
 >
-  <div class="section-styles__wrapper">
+  <styles-component
+    class="section-styles__wrapper"
+    data-layout="{{ layout_type }}"
+  >
     {%- comment -%} Header area with heading and optional carousel arrows {%- endcomment -%}
     <div class="section-styles__header">
       {%- content_for 'blocks' -%}
@@ -66,16 +61,17 @@
       {%- if is_carousel -%}
         <div class="section-styles__nav">
           <button
-            class="section-styles__arrow section-styles__arrow--prev slideshow-control"
+            class="section-styles__arrow section-styles__arrow--prev"
             aria-label="{{ 'accessibility.slideshow_previous' | t }}"
-            data-slideshow-prev
+            data-action="prev"
+            disabled
           >
             {% render 'icon', icon: 'chevron_left', size: '24px' %}
           </button>
           <button
-            class="section-styles__arrow section-styles__arrow--next slideshow-control"
+            class="section-styles__arrow section-styles__arrow--next"
             aria-label="{{ 'accessibility.slideshow_next' | t }}"
-            data-slideshow-next
+            data-action="next"
           >
             {% render 'icon', icon: 'chevron_right', size: '24px' %}
           </button>
@@ -84,7 +80,7 @@
     </div>
 
     {%- comment -%} Collection tiles {%- endcomment -%}
-    {%- capture tiles_content -%}
+    <div class="section-styles__scroller" data-scroller>
       {%- for collection in collection_list limit: max_items -%}
         {%- liquid
           assign has_collection = false
@@ -93,72 +89,82 @@
           endif
           assign collection_image = collection.image | default: collection.featured_image
         -%}
-        {%- capture tile_markup -%}
-          <a
-            href="{{ collection.url | default: '#' }}"
-            class="section-styles__tile"
-            {% unless has_collection %}aria-hidden="true"{% endunless %}
-          >
-            <div class="section-styles__image">
-              {%- if has_collection and collection_image != blank -%}
-                {{
-                  collection_image
-                  | image_url: width: 600
-                  | image_tag:
-                    loading: 'lazy',
-                    widths: '200, 300, 400, 500, 600',
-                    sizes: '(max-width: 749px) 124px, 224px',
-                    class: 'section-styles__img'
-                }}
-              {%- else -%}
-                <div class="section-styles__placeholder"></div>
-              {%- endif -%}
-            </div>
-            <span class="section-styles__label">
-              {%- if has_collection -%}
-                {{ collection.title }}
-              {%- else -%}
-                {{ 'placeholders.collection_title' | t }}
-              {%- endif -%}
-            </span>
-          </a>
-        {%- endcapture -%}
-        {%- if is_carousel -%}
-          {% render 'slideshow-slide',
-            index: forloop.index0,
-            class: 'section-styles__slide',
-            children: tile_markup
-          %}
-        {%- else -%}
-          {{ tile_markup }}
-        {%- endif -%}
+        <a
+          href="{{ collection.url | default: '#' }}"
+          class="section-styles__tile"
+          {% unless has_collection %}aria-hidden="true"{% endunless %}
+        >
+          <div class="section-styles__image">
+            {%- if has_collection and collection_image != blank -%}
+              {{
+                collection_image
+                | image_url: width: 600
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '200, 300, 400, 500, 600',
+                  sizes: '(max-width: 749px) 124px, 224px',
+                  class: 'section-styles__img'
+              }}
+            {%- else -%}
+              <div class="section-styles__placeholder"></div>
+            {%- endif -%}
+          </div>
+          <span class="section-styles__label">
+            {%- if has_collection -%}
+              {{ collection.title }}
+            {%- else -%}
+              {{ 'placeholders.collection_title' | t }}
+            {%- endif -%}
+          </span>
+        </a>
       {%- endfor -%}
-    {%- endcapture -%}
-
-    <div
-      class="section-styles__content{% if is_carousel %} force-full-width{% endif %}"
-      style="{{ gutter_style }}"
-    >
-      {%- if is_carousel -%}
-        {% render 'slideshow',
-          ref: 'stylesCarousel',
-          class: 'section-styles__slideshow',
-          slides: tiles_content,
-          show_arrows: false,
-          auto_hide_controls: true,
-          infinite: false,
-          initial_slide: 0,
-          slide_count: max_items,
-          slideshow_gutters: slideshow_gutters
-        %}
-      {%- else -%}
-        <div class="section-styles__items">
-          {{ tiles_content }}
-        </div>
-      {%- endif -%}
     </div>
-  </div>
+  </styles-component>
 </div>
+
+{%- if is_carousel -%}
+  <script type="module">
+    class StylesComponent extends HTMLElement {
+      connectedCallback() {
+        this.scroller = this.querySelector('[data-scroller]');
+        this.prevBtn = this.querySelector('[data-action="prev"]');
+        this.nextBtn = this.querySelector('[data-action="next"]');
+
+        if (!this.scroller || !this.prevBtn || !this.nextBtn) return;
+
+        this.prevBtn.addEventListener('click', () => this.scroll('prev'));
+        this.nextBtn.addEventListener('click', () => this.scroll('next'));
+        this.scroller.addEventListener('scroll', () => this.updateButtons(), { passive: true });
+
+        this.updateButtons();
+      }
+
+      scroll(direction) {
+        const tile = this.scroller.querySelector('.section-styles__tile');
+        if (!tile) return;
+
+        const tileWidth = tile.offsetWidth;
+        const gap = parseInt(getComputedStyle(this.scroller).gap) || 8;
+        const scrollAmount = tileWidth + gap;
+
+        this.scroller.scrollBy({
+          left: direction === 'next' ? scrollAmount : -scrollAmount,
+          behavior: 'smooth'
+        });
+      }
+
+      updateButtons() {
+        const { scrollLeft, scrollWidth, clientWidth } = this.scroller;
+        this.prevBtn.disabled = scrollLeft <= 1;
+        this.nextBtn.disabled = scrollLeft >= scrollWidth - clientWidth - 1;
+      }
+    }
+
+    if (!customElements.get('styles-component')) {
+      customElements.define('styles-component', StylesComponent);
+    }
+  </script>
+{%- endif -%}
 
 {% stylesheet %}
   .section-styles__wrapper {
@@ -212,37 +218,28 @@
     }
   }
 
-  .section-styles__content {
+  .section-styles__scroller {
+    display: flex;
+    gap: var(--styles-gap, 8px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     @media screen and (min-width: 750px) {
       flex: 1;
       min-width: 0;
     }
   }
 
-  /* Grid layout */
-  .section-styles__items {
-    display: flex;
-    gap: var(--styles-gap, 8px);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    padding-bottom: 4px;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  /* Slideshow integration */
-  .section-styles__slideshow slideshow-slides {
-    gap: var(--styles-gap, 8px);
-  }
-
-  .section-styles__slide {
-    --slide-width: 124px;
-
+  /* Carousel mode: hide overflow on desktop, show arrows */
+  styles-component[data-layout="carousel"] .section-styles__scroller {
     @media screen and (min-width: 750px) {
-      --slide-width: 224px;
+      overflow: hidden;
     }
   }
 
@@ -290,7 +287,6 @@
     text-transform: uppercase;
     color: var(--color-foreground, #000);
   }
-
 {% endstylesheet %}
 
 {% schema %}
