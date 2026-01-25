@@ -1,0 +1,422 @@
+{%- doc -%}
+  Blog Editions Card Block
+
+  Renders a blog card that supports two layouts:
+  - Horizontal: 50/50 split with image left, content right, centered text
+  - Vertical: Stacked with image top, content below, left-aligned text
+
+  Block receives:
+  - article: The article object from the parent section
+  - card_style: 'horizontal' or 'vertical' from section settings
+  - block.settings: All configured settings from the schema
+
+  @example
+  {% content_for 'block', type: '_blog-editions-card', id: 'blog-edition-card', article: article, card_style: 'vertical' %}
+{%- enddoc -%}
+
+{% assign block_settings = block.settings %}
+{% assign card_style = card_style | default: 'vertical' %}
+
+{% liquid
+  assign onboarding = false
+
+  if article == blank
+    assign onboarding = true
+    assign display_title = 'placeholders.blog_post_title' | t
+    assign display_author = 'placeholders.blog_post_author' | t
+    assign display_date = 'placeholders.blog_post_date' | t
+    assign display_description = 'placeholders.blog_post_description' | t
+  else
+    assign display_title = article.title
+    assign display_author = article.author
+    assign display_date = article.published_at
+    assign display_description = null
+  endif
+%}
+
+{% capture image %}
+  {% content_for 'block',
+    id: 'image',
+    type: '_blog-editions-image',
+    image: article.image,
+    parent_block_id: block.id,
+    card_style: card_style
+  %}
+{% endcapture %}
+
+{% capture tag %}
+  {% content_for 'block',
+    id: 'blog-post-info-text',
+    type: '_blog-post-info-text',
+    alignment: 'center',
+    author: display_author,
+    date: display_date
+  %}
+{% endcapture %}
+
+{% capture title %}
+  {% content_for 'block', id: 'title', type: '_heading', text: display_title %}
+{% endcapture %}
+
+{% capture description %}
+  {% content_for 'block',
+    id: 'blog-post-description',
+    type: '_blog-post-description',
+    article: article,
+    show_read_more: false,
+    should_truncate: true,
+    onboarding_text: display_description
+  %}
+{% endcapture %}
+
+<div
+  class="
+    blog-editions-card
+    blog-editions-card--{{ card_style }}
+    spacing-style border-style
+    {% if block_settings.inherit_color_scheme == false %}color-{{ block_settings.color_scheme }}{% endif %}
+  "
+  data-block-id="{{ block.id }}"
+  data-card-style="{{ card_style }}"
+  data-testid="blog-editions-card"
+  {% if onboarding %}
+    data-placeholder="true"
+  {% endif %}
+  style="
+    {%- render 'spacing-style', settings: block_settings -%}
+    {%- render 'border-override', settings: block_settings -%}
+    --content-gap: {{ block_settings.content_gap }}px;
+  "
+  {{ block.shopify_attributes }}
+>
+  <a
+    class="blog-editions-card__link"
+    {% unless onboarding %}
+      href="{{ article.url }}"
+    {% endunless %}
+  >
+    <span class="visually-hidden">{{ display_title }}</span>
+  </a>
+
+  <div class="blog-editions-card__inner">
+    {% if onboarding or article.image %}
+      <div class="blog-editions-card__image-wrapper">
+        {{ image }}
+      </div>
+    {% endif %}
+
+    <div class="blog-editions-card__content">
+      <div class="blog-editions-card__content-inner">
+        {{ tag }}
+        <h4 class="blog-editions-card__title">{{ title }}</h4>
+        {{ description }}
+        {% if block_settings.show_cta %}
+          <div class="blog-editions-card__cta">
+            <span class="blog-editions-card__cta-text">
+              {{ block_settings.cta_text }}
+            </span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .blog-editions-card {
+    position: relative;
+    container-type: inline-size;
+  }
+
+  .blog-editions-card__link {
+    position: absolute;
+    inset: 0;
+    z-index: var(--layer-raised);
+  }
+
+  .blog-editions-card__inner {
+    display: flex;
+    height: 100%;
+  }
+
+  .blog-editions-card__title {
+    margin: 0;
+  }
+
+  .blog-editions-card__cta {
+    margin-top: var(--gap-sm);
+  }
+
+  .blog-editions-card__cta-text {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  .blog-editions-card__cta-text:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .blog-editions-card__inner a,
+  .blog-editions-card__inner button {
+    pointer-events: auto;
+  }
+
+  /* Allow all blocks to be selectable in editor preview */
+  .shopify-design-mode .blog-editions-card__content * {
+    pointer-events: auto;
+  }
+
+  /* ======================
+     VERTICAL LAYOUT
+     Image on top, content below, left-aligned
+     ====================== */
+  .blog-editions-card--vertical .blog-editions-card__inner {
+    flex-direction: column;
+  }
+
+  .blog-editions-card--vertical .blog-editions-card__image-wrapper {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .blog-editions-card--vertical .blog-editions-card__content {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--gap-lg) 0 0 0;
+  }
+
+  .blog-editions-card--vertical .blog-editions-card__content-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--content-gap, 12px);
+    width: 100%;
+    padding-right: var(--gap-xl);
+  }
+
+  .blog-editions-card--vertical .blog-editions-card__title .text-block {
+    text-align: left;
+  }
+
+  /* ======================
+     HORIZONTAL LAYOUT
+     Image left, content right, centered
+     ====================== */
+  .blog-editions-card--horizontal .blog-editions-card__inner {
+    flex-direction: row;
+  }
+
+  .blog-editions-card--horizontal .blog-editions-card__image-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .blog-editions-card--horizontal .blog-editions-card__content {
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--gap-xl);
+  }
+
+  .blog-editions-card--horizontal .blog-editions-card__content-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--content-gap, 12px);
+    max-width: 400px;
+  }
+
+  .blog-editions-card--horizontal .blog-editions-card__title .text-block {
+    text-align: center;
+  }
+
+  /* Horizontal: Stack vertically on mobile */
+  @container (max-width: 750px) {
+    .blog-editions-card--horizontal .blog-editions-card__inner {
+      flex-direction: column;
+    }
+
+    .blog-editions-card--horizontal .blog-editions-card__image-wrapper {
+      flex: 0 0 auto;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .blog-editions-card--horizontal .blog-editions-card__content {
+      flex: 0 0 auto;
+      max-width: 100%;
+      width: 100%;
+      padding: var(--gap-lg);
+    }
+  }
+
+  /* Vertical: Reduce padding on mobile */
+  @container (max-width: 750px) {
+    .blog-editions-card--vertical .blog-editions-card__content {
+      padding: var(--gap-md) 0 0 0;
+    }
+
+    .blog-editions-card--vertical .blog-editions-card__content-inner {
+      padding-right: var(--gap-md);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.blog_editions_card",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.text"
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "t:settings.vertical_gap",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "t:content.cta"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "t:settings.show_cta",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "t:settings.cta_text",
+      "default": "Read article",
+      "visible_if": "{{ block.settings.show_cta }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "t:settings.inherit_color_scheme",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1",
+      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "t:settings.borders",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "label": "t:settings.border_width",
+      "default": 1,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:settings.opacity",
+      "default": 100,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}
