@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "section": {
       "type": "main-blog-post",
@@ -21,7 +21,7 @@
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
-            "type_preset": "h2",
+            "type_preset": "h3",
             "font": "var(--font-primary--family)",
             "font_size": "",
             "line_height": "normal",
@@ -46,22 +46,21 @@
           "settings": {
             "show_date": true,
             "show_author": false,
-            "type_preset": "",
+            "type_preset": "h6",
             "alignment": "center",
             "show_alignment": true,
-            "padding-block-start": 24,
+            "padding-block-start": 16,
             "padding-block-end": 0
           },
           "blocks": {}
         },
         "blog-post-image": {
           "type": "_blog-post-featured-image",
-          "name": "Featured image",
           "static": true,
           "settings": {
             "image_ratio": "landscape",
             "width": "fill",
-            "custom_width": 100,
+            "custom_width": 50,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
@@ -85,10 +84,10 @@
       },
       "settings": {
         "content_direction": "column",
-        "gap": 32,
+        "gap": 64,
         "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "padding-block-start": 96,
+        "padding-block-end": 0
       }
     }
   },

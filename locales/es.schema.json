@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "names": {
     "404": "404",
@@ -525,7 +534,7 @@
       "heading": "Título",
       "description": "Descripción",
       "key": "Nombre de la propiedad",
-      "key_info": "Debe ser único para cada bloque. Se muestra en el carrito, el pago y los detalles del pedido.",
+      "key_info": "No puede estar en blanco y debe ser único por bloque. Se muestra en el carrito, la página de pago y la información del pedido.",
       "placeholder_text": "Texto del marcador de posición",
       "default_heading": "Personaliza tu producto",
       "default_placeholder": "Escribe tus instrucciones especiales",
