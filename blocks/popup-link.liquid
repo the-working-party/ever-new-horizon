@@ -1,3 +1,5 @@
+
+
 {% assign block_settings = block.settings %}
 
 <script
@@ -15,7 +17,7 @@
     style="{% render 'spacing-style', settings: block_settings %}"
   >
     {{- block_settings.heading }}
-    {{- 'icon-external.svg' | inline_asset_content -}}
+    {{- 'icon-plus.svg' | inline_asset_content -}}
   </button>
 
   <dialog
@@ -48,7 +50,7 @@
   .popup-link__button svg {
     display: inline-block;
     position: relative;
-    top: var(--margin-2xs);
+    top: var(--margin-1xs);
   }
 
   .popup-link__content {
