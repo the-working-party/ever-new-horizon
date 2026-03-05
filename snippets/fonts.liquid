@@ -1,4 +1,20 @@
 {% # theme-check-disable %}
+{%- liquid
+  assign custom_1_used = false
+  if settings.custom_font_body == 'custom_1' or settings.custom_font_heading == 'custom_1' or settings.custom_font_subheading == 'custom_1' or settings.custom_font_accent == 'custom_1'
+    assign custom_1_used = true
+  endif
+-%}
+{%- if custom_1_used -%}
+  <link
+    rel="preload"
+    as="font"
+    href="{{ 'MessinaSansRegular.woff2' | asset_url }}"
+    type="font/woff2"
+    crossorigin
+    fetchpriority="low"
+  >
+{%- endif -%}
 {%- unless settings.type_body_font.system? -%}
   <link
     rel="preload"
