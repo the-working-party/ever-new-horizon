@@ -1,0 +1,7 @@
+# Example command:
+#   shopify theme dev start -e prod
+
+[environments.prod]
+store = "ever-new"
+password = ""
+theme = ""
