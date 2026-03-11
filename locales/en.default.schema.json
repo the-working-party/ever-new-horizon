@@ -68,6 +68,9 @@
     "follow_on_shop_eligiblity": "For the button to show, the Shop channel must be installed and Shop Pay activated. [Learn more](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/add-shop-buttons)",
     "gift_card_form_description": "Customers can send gift cards to a recipient's email with a personal message. [Learn more](https://help.shopify.com/manual/products/gift-card-products)",
     "fonts": "Fonts",
+    "custom_fonts": "Custom fonts",
+    "custom_fonts_info": "Applies Messina Sans (Regular).",
+    "custom_font_1_info": "Default: Messina Sans.",
     "grid": "Grid",
     "grid_layout": "Grid layout",
     "heading": "Heading",
@@ -495,6 +498,8 @@
     "cover": "Cover",
     "crop_to_fit": "Crop to fit",
     "custom": "Custom",
+    "custom_font_1": "Messina Sans",
+    "theme_default": "Theme default",
     // Icon option representing dairy products
     "dairy": "Dairy",
     // Icon option for dietary restriction indication
@@ -833,6 +838,11 @@
     "custom_mobile_width": "Custom mobile width",
     "custom_width": "Custom width",
     "custom_liquid": "Liquid code",
+    "custom_font_1_name": "Custom font name",
+    "custom_font_body": "Body font",
+    "custom_font_heading": "Heading font",
+    "custom_font_subheading": "Subheading font",
+    "custom_font_accent": "Accent font",
     // Primary color scheme option, not specialized variants
     "default": "Default",
     "default_logo": "Default logo",

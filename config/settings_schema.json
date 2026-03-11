@@ -377,6 +377,61 @@
       },
       {
         "type": "header",
+        "content": "t:content.custom_fonts"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:content.custom_fonts_info"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_1_name",
+        "label": "t:settings.custom_font_1_name",
+        "default": "Messina Sans",
+        "info": "t:content.custom_font_1_info"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_body",
+        "label": "t:settings.custom_font_body",
+        "options": [
+          { "value": "default", "label": "t:options.theme_default" },
+          { "value": "custom_1", "label": "t:options.custom_font_1" }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_subheading",
+        "label": "t:settings.custom_font_subheading",
+        "options": [
+          { "value": "default", "label": "t:options.theme_default" },
+          { "value": "custom_1", "label": "t:options.custom_font_1" }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_heading",
+        "label": "t:settings.custom_font_heading",
+        "options": [
+          { "value": "default", "label": "t:options.theme_default" },
+          { "value": "custom_1", "label": "t:options.custom_font_1" }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_accent",
+        "label": "t:settings.custom_font_accent",
+        "options": [
+          { "value": "default", "label": "t:options.theme_default" },
+          { "value": "custom_1", "label": "t:options.custom_font_1" }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "header",
         "content": "t:content.text_presets"
       },
       {

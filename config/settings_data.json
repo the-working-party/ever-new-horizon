@@ -18,6 +18,8 @@
     "type_subheading_font": "dm_sans_n4",
     "type_heading_font": "ebgaramond_n4",
     "type_accent_font": "figtree_n4",
+    "custom_font_body": "custom_1",
+    "custom_font_subheading": "custom_1",
     "type_size_paragraph": "12",
     "type_line_height_paragraph": "body-loose",
     "type_font_h1": "heading",

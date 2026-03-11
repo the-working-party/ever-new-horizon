@@ -79,10 +79,7 @@
           "blocks": {}
         }
       },
-      "custom_css": [
-        "/* TOP-LEVEL MENU LINKS ONLY - ALL CAPS + LETTER SPACING */.header-menu .menu-list__link-title {text-transform: uppercase; letter-spacing: 0.36px;}",
-        " /* Keep dropdown / mega menu links normal */.header-menu .menu-list--sub .menu-list__link-title {text-transform: none; letter-spacing: normal; /* ensure dropdowns stay default */}"
-      ],
+      "custom_css": [],
       "settings": {
         "logo_position": "center",
         "menu_position": "left",
