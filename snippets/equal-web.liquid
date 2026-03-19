@@ -1,0 +1,74 @@
+{%- comment -%} Accessibility Code - Equal Web widget. Renders only when site key is configured. {%- endcomment -%}
+{% if settings.equal_web_sitekey != blank %}
+  <!-- Accessibility Code for "www.evernew.com" -->
+
+  <script>
+    /*
+  
+  Want to customize your button? visit our documentation page:
+  
+  https://login.equalweb.com/custom-button
+  
+  */
+
+    window.interdeal = {
+      get sitekey() {
+        return '{{ settings.equal_web_sitekey }}';
+      },
+
+      get domains() {
+        return {
+          js: 'https://cdn.equalweb.com/',
+          acc: 'https://access.equalweb.com/',
+        };
+      },
+
+      Position: 'left',
+
+      Menulang: 'EN',
+
+      draggable: true,
+
+      btnStyle: {
+        vPosition: ['80%', '80%'],
+
+        margin: ['0', '0'],
+
+        scale: ['0.5', '0.5'],
+
+        color: {
+          main: '#000000',
+
+          second: '#ffffff',
+        },
+
+        icon: {
+          outline: false,
+
+          outlineColor: '#ffffff',
+
+          type: 11,
+
+          shape: 'circle',
+        },
+      },
+    };
+
+    (function (doc, head, body) {
+      var coreCall = doc.createElement('script');
+
+      coreCall.src = interdeal.domains.js + 'core/5.2.6/accessibility.js';
+
+      coreCall.defer = true;
+
+      coreCall.integrity =
+        'sha512-Eyej8seFY4JUGJThUYSWV/UwEEC5GCbBnzUg8lfmFjsZd4+iXGFALUoqt0MNUQXfj6/blmksYQ2yCXivmTWcgQ==';
+
+      coreCall.crossOrigin = 'anonymous';
+
+      coreCall.setAttribute('data-cfasync', true);
+
+      body ? body.appendChild(coreCall) : head.appendChild(coreCall);
+    })(document, document.head, document.body);
+  </script>
+{% endif %}
