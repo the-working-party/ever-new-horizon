@@ -979,7 +979,7 @@
               "type": "collection-card",
               "name": "t:names.collection_card",
               "settings": {
-                "collection": "dresses-for-wedding-guests",
+                "collection": "dresses",
                 "placement": "below_image",
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
@@ -1041,7 +1041,7 @@
               "type": "collection-card",
               "name": "t:names.collection_card",
               "settings": {
-                "collection": "engagement",
+                "collection": "pants",
                 "placement": "below_image",
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
@@ -1974,7 +1974,7 @@
       },
       "name": "Product Carousel",
       "settings": {
-        "collection": "party-dresses",
+        "collection": "dresses",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 16,
@@ -2071,6 +2071,7 @@
         "static-collection-card": {
           "type": "_collection-card",
           "name": "t:names.collection_card",
+          "disabled": true,
           "static": true,
           "settings": {
             "placement": "below_image",
@@ -2139,9 +2140,9 @@
       "name": "Multi Column: Collection",
       "settings": {
         "collection_list": [
-          "curve",
-          "girls",
-          "petite-clothing-collection"
+          "dresses",
+          "bottoms",
+          "event-dresses"
         ],
         "layout_type": "grid",
         "carousel_on_mobile": false,
@@ -2954,6 +2955,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "Blog Feed",
       "settings": {
         "columns": 1,
@@ -3605,7 +3607,8 @@
         "group_8azpCG",
         "group_GAC8YG"
       ],
-      "name": "Multi Column: 3 Image",
+      "disabled": true,
+      "name": "OUR WORLD",
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,

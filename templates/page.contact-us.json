@@ -569,11 +569,30 @@
                 }
               },
               "block_order": []
+            },
+            "forms_inline_YM8i6G": {
+              "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+              "disabled": true,
+              "settings": {
+                "form_id": "914559",
+                "text_color": "#202020",
+                "button_background_color": "#202020",
+                "button_label_color": "#FFFFFF",
+                "links_color": "#414042",
+                "errors_color": "#E02229",
+                "text_alignment": "left",
+                "form_alignment": "flex-start",
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_right": 0,
+                "padding_left": 0
+              }
             }
           },
           "block_order": [
             "text_x7jRCW",
-            "contact_form_cPLgNP"
+            "contact_form_cPLgNP",
+            "forms_inline_YM8i6G"
           ]
         }
       },

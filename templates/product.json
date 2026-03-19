@@ -383,7 +383,7 @@
                   "type": "_accordion-row",
                   "settings": {
                     "heading": "Designer Notes",
-                    "open_by_default": false,
+                    "open_by_default": true,
                     "icon": "none",
                     "width": 20
                   },
@@ -524,7 +524,7 @@
                     "text_igRxFr": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Enjoy free standard shipping for all orders over AU$75 per transaction.</p><p>Click and Collect is a free service at selected Forever New stores. Order online, choose Click and Collect at checkout, and collect from your chosen store within 1–3 business days.</p><p>Please refer to our Shipping Policy for more information. Have a question regarding returns? Check out our Online Returns Policy.</p>",
+                        "text": "<p>Enjoy free standard shipping for all orders over $150 USD.</p><p>Refer to our Shipping Policy for more information. Have a question regarding returns? Check out our Online Returns Policy.</p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -1090,6 +1090,7 @@
             "group_WzzbB7": {
               "type": "group",
               "name": "As Seen On",
+              "disabled": true,
               "settings": {
                 "content_direction": "column",
                 "vertical_on_mobile": true,
@@ -2256,6 +2257,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "Featured Collection",
       "settings": {
         "collection": "{{ product.metafields.custom.featured_collection.value }}",
