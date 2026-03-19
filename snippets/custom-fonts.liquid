@@ -1,0 +1,25 @@
+{%- comment -%}
+  Custom Fonts Snippet
+
+  Outputs @font-face rules for custom font when selected in theme settings.
+  Uses MessinaSansRegular.woff2 from assets/
+{%- endcomment -%}
+
+{%- liquid
+  assign custom_1_used = false
+  if settings.custom_font_body == 'custom_1' or settings.custom_font_heading == 'custom_1' or settings.custom_font_subheading == 'custom_1' or settings.custom_font_accent == 'custom_1'
+    assign custom_1_used = true
+  endif
+-%}
+
+{%- if custom_1_used and settings.custom_font_1_name != blank -%}
+  {% style %}
+    @font-face {
+      font-family: {{ settings.custom_font_1_name | json }};
+      src: url('{{ "MessinaSansRegular.woff2" | asset_url }}') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+  {% endstyle %}
+{%- endif -%}

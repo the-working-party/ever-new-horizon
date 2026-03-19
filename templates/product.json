@@ -1312,11 +1312,7 @@
           ]
         }
       },
-      "custom_css": [
-        "[id^=\"BuyButtons\"] svg {display: none !important;}",
-        ".variant-option__button-label,.swatch {border: 0 !important; outline: 0 !important; box-shadow: none !important; border-bottom: 1px solid transparent !important; border-radius: 0 !important; padding-bottom: 2px !important;}",
-        ":is(.variant-option__button-label, .swatch):hover,input:checked + :is(.variant-option__button-label, .swatch) {border-bottom-color: #000 !important;}"
-      ],
+      "custom_css": [],
       "settings": {
         "content_width": "content-full-width",
         "desktop_media_position": "left",

@@ -36,7 +36,8 @@ alwaysApply: false
 ## Setting Categories
 
 **Typography:**
-- `font_picker` for font selections
+- `font_picker` for font selections from Shopify's font library
+- Custom font files: Use `select` + `text` settings with assets. Add .woff2 files to `assets/` (e.g. `custom-font-1.woff2`), define @font-face in a snippet, override CSS variables in `theme-styles-variables.liquid`
 - `range` for font sizes (12-72px)
 - `select` for font weights
 

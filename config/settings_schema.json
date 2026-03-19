@@ -1,8 +1,8 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Horizon",
-    "theme_version": "3.3.0",
+    "theme_name": "Ever New",
+    "theme_version": "1.0.0",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
@@ -374,6 +374,61 @@
         "id": "type_accent_font",
         "default": "anonymous_pro_n4",
         "label": "t:options.accent"
+      },
+      {
+        "type": "header",
+        "content": "t:content.custom_fonts"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:content.custom_fonts_info"
+      },
+      {
+        "type": "text",
+        "id": "custom_font_1_name",
+        "label": "t:settings.custom_font_1_name",
+        "default": "Messina Sans",
+        "info": "t:content.custom_font_1_info"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_body",
+        "label": "t:settings.custom_font_body",
+        "options": [
+          { "value": "default", "label": "t:options.theme_default" },
+          { "value": "custom_1", "label": "t:options.custom_font_1" }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_subheading",
+        "label": "t:settings.custom_font_subheading",
+        "options": [
+          { "value": "default", "label": "t:options.theme_default" },
+          { "value": "custom_1", "label": "t:options.custom_font_1" }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_heading",
+        "label": "t:settings.custom_font_heading",
+        "options": [
+          { "value": "default", "label": "t:options.theme_default" },
+          { "value": "custom_1", "label": "t:options.custom_font_1" }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "select",
+        "id": "custom_font_accent",
+        "label": "t:settings.custom_font_accent",
+        "options": [
+          { "value": "default", "label": "t:options.theme_default" },
+          { "value": "custom_1", "label": "t:options.custom_font_1" }
+        ],
+        "default": "default"
       },
       {
         "type": "header",

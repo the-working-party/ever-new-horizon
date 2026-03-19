@@ -1,5 +1,3 @@
-
-
 {% liquid
   assign collection_list = section.settings.collection_list
 
@@ -14,52 +12,58 @@
   endif
 
   assign active_collection = collection_list | find: 'id', collection.id | default: collection_list.first
+
+  assign should_render = true
+  if template.name == 'collection' and section.settings.collection_list == blank
+    assign should_render = false
+  endif
 %}
 
-<script
-  src="{{ 'collection-links.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
+{% if should_render %}
+  <script
+    src="{{ 'collection-links.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
-<div
-  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style"
-  style="{% render 'spacing-style', settings: section.settings %}"
-  data-testid="collection-links-{{ section.id }}"
->
-  <collection-links-component
-    layout="{{ section.settings.layout }}"
-    alignment="{{ section.settings.alignment }}"
-    {% if section.settings.image_position == 'left' %}
-      reverse
-    {% endif %}
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+  <div
+    class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style"
+    style="{% render 'spacing-style', settings: section.settings %}"
+    data-testid="collection-links-{{ section.id }}"
   >
-    <div
-      class="collection-links__container"
-      ref="container"
+    <collection-links-component
+      layout="{{ section.settings.layout }}"
+      alignment="{{ section.settings.alignment }}"
+      {% if section.settings.image_position == 'left' %}
+        reverse
+      {% endif %}
     >
-      {% for collection in collection_list limit: limit %}
-        {% liquid
-          assign current = false
+      <div
+        class="collection-links__container"
+        ref="container"
+      >
+        {% for collection in collection_list limit: limit %}
+          {% liquid
+            assign current = false
 
-          if collection.id == active_collection.id
-            assign current = true
-          endif
-        %}
-        {% content_for 'block',
-          type: '_collection-link',
-          id: 'link',
-          closest.collection: collection,
-          index: forloop.index0,
-          current: current
-        %}
-      {% endfor %}
-    </div>
+            if collection.id == active_collection.id
+              assign current = true
+            endif
+          %}
+          {% content_for 'block',
+            type: '_collection-link',
+            id: 'link',
+            closest.collection: collection,
+            index: forloop.index0,
+            current: current
+          %}
+        {% endfor %}
+      </div>
 
-    {% case section.settings.layout %}
-      {% when 'spotlight' %}
-        {% capture slides %}
+      {% case section.settings.layout %}
+        {% when 'spotlight' %}
+          {% capture slides %}
           {% for collection in collection_list limit: limit %}
           {% liquid
             assign current = false
@@ -86,19 +90,46 @@
         {% endfor %}
       {% endcapture %}
 
-        {% render 'slideshow',
-          slides: slides,
-          slide_count: collection_list.size,
-          class: 'collection-links__images',
-          ref: 'slideshow'
-        %}
-    {% endcase %}
-  </collection-links-component>
-</div>
+          {% render 'slideshow',
+            slides: slides,
+            slide_count: collection_list.size,
+            class: 'collection-links__images',
+            ref: 'slideshow'
+          %}
+      {% endcase %}
+    </collection-links-component>
+  </div>
+{% endif %}
 
 {% # theme-check-disable ValidBlockTarget %}
 {% stylesheet %}
   collection-links-component {
+    a,
+    p {
+      font-size: 12px !important;
+      font-weight: 400 !important;
+      color: #000 !important;
+      text-decoration: none !important;
+      line-height: 1.5 !important;
+      border-bottom: 1px solid transparent !important;
+      transition: border-color 0.2s ease !important;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: inherit !important;
+      font-weight: inherit !important;
+      border: none !important;
+      margin: 0 !important;
+    }
+    a:hover,
+    p:hover {
+      border-bottom-color: #000 !important;
+    }
+
     --alignment: flex-start;
 
     display: grid;
@@ -178,6 +209,10 @@
     display: flex;
     gap: var(--gap-md);
     flex-direction: column;
+  }
+
+  .collection-links__container a span {
+    cursor: pointer;
   }
 
   .collection-links__images {

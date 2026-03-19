@@ -155,18 +155,43 @@
     --letter-spacing-md: 0.13em;
 
     /* Font families */
-    --font-body--family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-    --font-body--style: {{ settings.type_body_font.style }};
-    --font-body--weight: {{ settings.type_body_font.weight }};
-    --font-subheading--family: {{ settings.type_subheading_font.family }}, {{ settings.type_subheading_font.fallback_families }};
-    --font-subheading--style: {{ settings.type_subheading_font.style }};
-    --font-subheading--weight: {{ settings.type_subheading_font.weight }};
-    --font-heading--family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
-    --font-heading--style: {{ settings.type_heading_font.style }};
-    --font-heading--weight: {{ settings.type_heading_font.weight }};
-    --font-accent--family: {{ settings.type_accent_font.family }}, {{ settings.type_accent_font.fallback_families }};
-    --font-accent--style: {{ settings.type_accent_font.style }};
-    --font-accent--weight: {{ settings.type_accent_font.weight }};
+    {%- liquid
+      if settings.custom_font_body == 'custom_1' and settings.custom_font_1_name != blank
+        assign body_font_family = settings.custom_font_1_name | json | append: ', sans-serif'
+      else
+        assign body_font_family = settings.type_body_font.family | append: ', ' | append: settings.type_body_font.fallback_families
+      endif
+
+      if settings.custom_font_heading == 'custom_1' and settings.custom_font_1_name != blank
+        assign heading_font_family = settings.custom_font_1_name | json | append: ', sans-serif'
+      else
+        assign heading_font_family = settings.type_heading_font.family | append: ', ' | append: settings.type_heading_font.fallback_families
+      endif
+
+      if settings.custom_font_subheading == 'custom_1' and settings.custom_font_1_name != blank
+        assign subheading_font_family = settings.custom_font_1_name | json | append: ', sans-serif'
+      else
+        assign subheading_font_family = settings.type_subheading_font.family | append: ', ' | append: settings.type_subheading_font.fallback_families
+      endif
+
+      if settings.custom_font_accent == 'custom_1' and settings.custom_font_1_name != blank
+        assign accent_font_family = settings.custom_font_1_name | json | append: ', sans-serif'
+      else
+        assign accent_font_family = settings.type_accent_font.family | append: ', ' | append: settings.type_accent_font.fallback_families
+      endif
+    -%}
+    --font-body--family: {{ body_font_family }};
+    --font-body--style: {% if settings.custom_font_body != 'default' %}normal{% else %}{{ settings.type_body_font.style }}{% endif %};
+    --font-body--weight: {% if settings.custom_font_body != 'default' %}400{% else %}{{ settings.type_body_font.weight }}{% endif %};
+    --font-subheading--family: {{ subheading_font_family }};
+    --font-subheading--style: {% if settings.custom_font_subheading != 'default' %}normal{% else %}{{ settings.type_subheading_font.style }}{% endif %};
+    --font-subheading--weight: {% if settings.custom_font_subheading != 'default' %}400{% else %}{{ settings.type_subheading_font.weight }}{% endif %};
+    --font-heading--family: {{ heading_font_family }};
+    --font-heading--style: {% if settings.custom_font_heading != 'default' %}normal{% else %}{{ settings.type_heading_font.style }}{% endif %};
+    --font-heading--weight: {% if settings.custom_font_heading != 'default' %}400{% else %}{{ settings.type_heading_font.weight }}{% endif %};
+    --font-accent--family: {{ accent_font_family }};
+    --font-accent--style: {% if settings.custom_font_accent != 'default' %}normal{% else %}{{ settings.type_accent_font.style }}{% endif %};
+    --font-accent--weight: {% if settings.custom_font_accent != 'default' %}400{% else %}{{ settings.type_accent_font.weight }}{% endif %};
 
     /* Margin sizes */
     --font-h1--spacing: 0.25em;
