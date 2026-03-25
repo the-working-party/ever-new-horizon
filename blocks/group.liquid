@@ -1,10 +1,22 @@
-
-
 {%- capture children %}
   {% content_for 'blocks' %}
 {% endcapture %}
 
 {% render 'group', children: children, settings: block.settings, shopify_attributes: block.shopify_attributes %}
+
+{% stylesheet %}
+  [id^='shopify-block-'][id*='__forms_inline_'] {
+    width: 100% !important;
+  }
+
+  [id^='shopify-block-'][id*='__forms_inline_'] > div[data-form-root='true'] {
+    --inline-container-max-width: 96% !important;
+  }
+
+  [id^='shopify-block-'][id*='__forms_inline_'] > div[data-form-root='true'] > shopify-forms-embed {
+    --inline-container-max-width: 96% !important;
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
