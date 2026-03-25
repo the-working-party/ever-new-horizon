@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Ever New",
-    "theme_version": "1.0.0",
+    "theme_version": "1.0.1",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
@@ -2353,6 +2353,17 @@
         "label": "Site key",
         "default": "e9f4fcfb2af7fbf1b755f4d2e8a3270e",
         "info": "Your Equal Web site key for the accessibility widget."
+      }
+    ]
+  },
+  {
+    "name": "Marker",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "marker_enabled",
+        "label": "Enable Marker",
+        "default": false
       }
     ]
   }

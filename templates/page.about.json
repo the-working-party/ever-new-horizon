@@ -199,6 +199,7 @@
         "text_Rb8HYJ",
         "text_8rYLAk"
       ],
+      "disabled": true,
       "name": "Tabs",
       "settings": {
         "content_direction": "row",
@@ -455,7 +456,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
+        "padding-block-start": 96,
         "padding-block-end": 0
       }
     },
@@ -1129,6 +1130,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "t:names.carousel",
       "settings": {
         "columns": 3,
@@ -1200,6 +1202,7 @@
         "text_4fAEVe",
         "text_46cyRP"
       ],
+      "disabled": true,
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
@@ -1741,6 +1744,7 @@
         "group_hzgxmN",
         "group_tFFbHa"
       ],
+      "disabled": true,
       "name": "Multi Column Section",
       "settings": {
         "content_direction": "column",
@@ -2434,6 +2438,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "t:names.carousel",
       "settings": {
         "columns": 1,
@@ -2571,6 +2576,7 @@
             "button_XKmJXd": {
               "type": "button",
               "name": "t:names.button",
+              "disabled": true,
               "settings": {
                 "label": "Button",
                 "link": "shopify://collections/all",
@@ -2690,7 +2696,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
+        "padding-block-start": 96,
         "padding-block-end": 0
       }
     },
@@ -2976,6 +2982,7 @@
         "group_JHfiT9",
         "group_nfwzrQ"
       ],
+      "disabled": true,
       "name": "t:names.multicolumn",
       "settings": {
         "content_direction": "row",
@@ -3287,6 +3294,7 @@
         "group_adtefT",
         "group_tCFFJJ"
       ],
+      "disabled": true,
       "name": "t:names.multicolumn",
       "settings": {
         "content_direction": "row",
@@ -3392,6 +3400,7 @@
         "text_hWQE9A",
         "button_8K3jL6"
       ],
+      "disabled": true,
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
@@ -3612,6 +3621,7 @@
         "group_xxLbbJ",
         "group_FhqiYW"
       ],
+      "disabled": true,
       "name": "Split Section",
       "settings": {
         "content_direction": "row",
@@ -3690,6 +3700,7 @@
         "static-carousel-content": {
           "type": "_carousel-content",
           "name": "t:names.carousel_content",
+          "disabled": true,
           "static": true,
           "settings": {
             "inherit_color_scheme": true,
