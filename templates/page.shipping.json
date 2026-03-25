@@ -180,7 +180,7 @@
                       "type": "text",
                       "name": "t:names.heading",
                       "settings": {
-                        "text": "<h6>Live Chat</h6>",
+                        "text": "<h6>PHONE</h6>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -206,7 +206,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Monday - Saturday<br/>9am - 5pm AEST</p>",
+                        "text": "<p>1 (855) 383-7876</p><p>Monday - Friday<br/>9am - 5pm  ET (Excluding Public Holidays)<br/><br/></p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -231,6 +231,7 @@
                     "text_adtnfd": {
                       "type": "text",
                       "name": "t:names.text",
+                      "disabled": true,
                       "settings": {
                         "text": "<p><a href=\"/pages/contact\" title=\"Contact\">Start a live chat with our team</a></p>",
                         "width": "fit-content",
@@ -331,7 +332,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p><a href=\"mailto:enquries@forevernew.com.au\" title=\"mailto:enquries@forevernew.com.au\">enquries@forevernew.com.au</a></p>",
+                        "text": "<p><a href=\"mailto:customer.service@evernew.com\" target=\"_blank\" title=\"mailto:customer.service@evernew.com\">customer.service@evernew.com</a></p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -732,7 +733,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p><strong>Australian Standard Delivery</strong></p>",
+                        "text": "<p><strong>Ground</strong></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -758,7 +759,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>3-7 business days from dispatch*</p><p>FREE for orders over AU$75 per transaction or AU$9.99 for orders under AU$75 per transaction.</p><ul><li>Orders placed before 4pm (AEST) will be dispatched on the same day (excluding weekends and public holidays)</li><li>Please note, an item from your order may be coming from a store location and may be ineligible for same day dispatch</li><li>Delivery times are based on orders placed between Monday – Friday (excluding public holidays)</li><li>Orders placed after 4pm will be dispatched the following business day</li><li>*Delivery may be delayed during sale or promotional periods</li></ul>",
+                        "text": "<p>2-5 business days from dispatch*</p><p>FREE for orders over $150 USD per transaction or $9.99 USD for orders under $150 USD per transaction.</p><ul><li>Orders placed before 4pm (ET) will be dispatched on the same day (excluding weekends and public holidays)</li><li>Delivery times are based on orders placed between Monday – Friday (excluding public holidays)</li><li>Orders placed after 4pm will be dispatched the following business day</li><li>Delivery may be delayed during sale or promotional periods</li></ul>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -785,111 +786,12 @@
                     "text_YNfMBN",
                     "text_jLWBNA"
                   ]
-                },
-                "group_7yArV4": {
-                  "type": "group",
-                  "name": "Columns",
-                  "settings": {
-                    "content_direction": "row",
-                    "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "flex-start",
-                    "align_baseline": false,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center",
-                    "gap": 24,
-                    "width": "fill",
-                    "custom_width": 100,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fit",
-                    "custom_height": 100,
-                    "inherit_color_scheme": true,
-                    "color_scheme": "",
-                    "background_media": "none",
-                    "video_position": "cover",
-                    "background_image_position": "cover",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0,
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "placeholder": "",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {
-                    "text_AaPccd": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<p><strong>Australian Express Post Delivery</strong></p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    },
-                    "text_LdCCXD": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<p>1-4 business days from dispatch*</p><p>AU$14.99 for all orders.</p><ul><li>Orders must be placed by 4pm (AEST) on any business day (excluding weekends and public holidays) and meet the <a href=\"https://auspost.com.au/sending/send-within-australia/express-post-parcels/express-post-guarantee\" target=\"_blank\">Express Post service conditions</a></li><li>Please note, an item from your order may be coming from a store location and may be ineligible for same day dispatch</li><li>Express Post delivery is available for orders within a certain network location. Please <a href=\"http://auspost.com.au/parcels-mail/standard-delivery-timetables.html\" target=\"_blank\">Click here</a> to view the postcodes that qualify for Express Post delivery. If you live outside of these postcodes, selecting Express Post will result in the next fastest possible transport link</li><li>Goods may not be delivered the next day due to circumstances such as adverse weather conditions, strikes etc. Please <a href=\"https://auspost.com.au/\" target=\"_blank\">click here</a> for further information </li><li>*Delivery may be delayed during sale or promotional periods</li></ul>",
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "paragraph",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_AaPccd",
-                    "text_LdCCXD"
-                  ]
                 }
               },
               "block_order": [
                 "text_zpJMXG",
                 "group_WYeLkL",
-                "group_cH6xJT",
-                "group_7yArV4"
+                "group_cH6xJT"
               ]
             }
           },

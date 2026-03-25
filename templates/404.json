@@ -306,7 +306,11 @@
           "bridesmaid-dresses",
           "bridal-shower",
           "curve",
-          "dresses-for-wedding-guests"
+          "dresses-for-wedding-guests",
+          "new-arrivals",
+          "dresses",
+          "occasionwear",
+          "tops"
         ],
         "layout_type": "grid",
         "carousel_on_mobile": true,

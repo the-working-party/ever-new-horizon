@@ -180,7 +180,7 @@
                       "type": "text",
                       "name": "t:names.heading",
                       "settings": {
-                        "text": "<h6>Live Chat</h6>",
+                        "text": "<h6>PHONE</h6>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -206,7 +206,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Monday - Saturday<br/>9am - 5pm AEST</p>",
+                        "text": "<p>1 (855) 383-7876</p><p>Monday - Friday<br/>9am - 5pm  EST (Excluding Public Holidays)<br/><br/></p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -231,6 +231,7 @@
                     "text_adtnfd": {
                       "type": "text",
                       "name": "t:names.text",
+                      "disabled": true,
                       "settings": {
                         "text": "<p><a href=\"/pages/contact\" title=\"Contact\">Start a live chat with our team</a></p>",
                         "width": "fit-content",
@@ -331,7 +332,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p><a href=\"mailto:enquries@forevernew.com.au\" title=\"mailto:enquries@forevernew.com.au\">enquries@forevernew.com.au</a></p>",
+                        "text": "<p><a href=\"mailto:customer.service@evernew.com\" title=\"mailto:customer.service@evernew.com\">customer.service@evernew.com</a></p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",

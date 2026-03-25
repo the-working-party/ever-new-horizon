@@ -269,7 +269,7 @@
                     "text_LWt8Pz": {
                       "type": "text",
                       "settings": {
-                        "text": "<h6>Join Forever You Rewards and receive 10% Off</h6>",
+                        "text": "<h6>Enjoy 15% off your first full price purchase when you sign-up to emails from Ever New</h6>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -284,7 +284,7 @@
                         "background": false,
                         "background_color": "#00000026",
                         "corner_radius": 0,
-                        "padding-block-start": 0,
+                        "padding-block-start": 8,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0
@@ -293,6 +293,7 @@
                     },
                     "text_f9CFLH": {
                       "type": "text",
+                      "disabled": true,
                       "settings": {
                         "text": "<p>Become a Rewards Member and you’ll receive 10% off* your first full price purchase. Discover a world of exclusive rewards and VIP benefits.</p>",
                         "width": "100%",
@@ -331,7 +332,7 @@
                         "input_type_preset": "paragraph",
                         "style_class": "button-secondary",
                         "display_type": "text",
-                        "label": "Join Now",
+                        "label": "Sign-Up",
                         "integrated_button": true,
                         "button_type_preset": "h6",
                         "padding-block-start": 0,
