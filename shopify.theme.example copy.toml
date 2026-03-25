@@ -2,6 +2,6 @@
 #   shopify theme dev start -e prod
 
 [environments.prod]
-store = "ever-new"
+store = "evernew-usa"
 password = ""
 theme = ""
