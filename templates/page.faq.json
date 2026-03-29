@@ -741,7 +741,7 @@
                               "type": "text",
                               "name": "t:names.heading",
                               "settings": {
-                                "text": "<p>Delivery and  Tracking</p>",
+                                "text": "<p><a href=\"/pages/shipping\" title=\"Shipping\">Delivery and  Tracking</a></p>",
                                 "width": "fit-content",
                                 "max_width": "normal",
                                 "alignment": "left",
@@ -825,7 +825,7 @@
                               "type": "text",
                               "name": "t:names.heading",
                               "settings": {
-                                "text": "<p>Returns and  Exchanges</p>",
+                                "text": "<p><a href=\"/pages/returns-portal\" title=\"Returns\">Returns and  Exchanges</a></p>",
                                 "width": "fit-content",
                                 "max_width": "normal",
                                 "alignment": "left",
@@ -909,7 +909,7 @@
                               "type": "text",
                               "name": "t:names.heading",
                               "settings": {
-                                "text": "<p>Product and Stock Availability</p>",
+                                "text": "<p><a href=\"/pages/terms-conditions\" title=\"Terms & Conditions\">Terms and Conditions</a></p>",
                                 "width": "fit-content",
                                 "max_width": "normal",
                                 "alignment": "left",
@@ -1040,7 +1040,7 @@
                               "type": "text",
                               "name": "t:names.heading",
                               "settings": {
-                                "text": "<p>Forever You Rewards</p>",
+                                "text": "<p><a href=\"/pages/payment-options\" title=\"Payment Options\">Payment Options</a></p>",
                                 "width": "fit-content",
                                 "max_width": "normal",
                                 "alignment": "left",
@@ -1124,7 +1124,7 @@
                               "type": "text",
                               "name": "t:names.heading",
                               "settings": {
-                                "text": "<p>Payments, Gifts and Promotions</p>",
+                                "text": "<p><a href=\"/pages/promotional-terms-and-conditions\" title=\"Promotional Terms and Conditions\">Promotional offers</a></p>",
                                 "width": "fit-content",
                                 "max_width": "normal",
                                 "alignment": "left",
@@ -1208,7 +1208,7 @@
                               "type": "text",
                               "name": "t:names.heading",
                               "settings": {
-                                "text": "<p>Feedback and General Enquiries</p>",
+                                "text": "<p><a href=\"/pages/contact\" title=\"Contact Form\">Feedback and General Enquiries</a></p>",
                                 "width": "fit-content",
                                 "max_width": "normal",
                                 "alignment": "left",
@@ -1340,10 +1340,128 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
+                    "accordion_row_GHB4cz": {
+                      "type": "_accordion-row",
+                      "settings": {
+                        "heading": "Who is Ever New?",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
+                      },
+                      "blocks": {
+                        "text_MbdrfG": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>We’re a global women’s fashion brand founded in Australia,known for creating timeless, feminine pieces designed to elevate your everyday and special moments.Our collections are thoughtfully designed with attention to detail, quality, and modern elegance - so you can feel confident, wherever you’re headed.</p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_MbdrfG"
+                      ]
+                    },
+                    "accordion_row_VxbTUn": {
+                      "type": "_accordion-row",
+                      "settings": {
+                        "heading": "I love the styles, but I’m not sure what size to choose?",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
+                      },
+                      "blocks": {
+                        "text_3kqmhQ": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Finding your perfect fit is easy with our True Fit size recommendation tool, available on selected product pages. Simply answer a few quick questions to receive personalised sizing guidance.You can also refer to our size guide and product fit notes for additional detail to help you feel confident in your choice.<br/></p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_3kqmhQ"
+                      ]
+                    },
+                    "accordion_row_DCexEx": {
+                      "type": "_accordion-row",
+                      "disabled": true,
+                      "settings": {
+                        "heading": "What size should I choose?",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
+                      },
+                      "blocks": {
+                        "text_eKYmXd": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Finding your perfect fit is easy with our True Fit size recommendation tool, available on selected product pages. Simply answer a few quick questions to receive personalised sizing guidance.You can also refer to our size guide and product fit notes for additional detail to help you feel confident in your choice.<br/></p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_eKYmXd"
+                      ]
+                    },
                     "accordion_row_aLBdR3": {
                       "type": "_accordion-row",
                       "settings": {
-                        "heading": "Placing an Order for Collection at a Parcel Locker or via Parcel Collect",
+                        "heading": "How can I track my order?",
                         "open_by_default": false,
                         "icon": "none",
                         "width": 20
@@ -1352,7 +1470,7 @@
                         "text_dKPz47": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                            "text": "<p>Once your order has been dispatched, you’ll receive a shipping confirmation email with a tracking link. You can use this link at any time to follow your order’s journey right to your door.<br/><br/></p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "left",
@@ -1379,19 +1497,19 @@
                         "text_dKPz47"
                       ]
                     },
-                    "accordion_row_qaHN8T": {
+                    "accordion_row_TwjUf4": {
                       "type": "_accordion-row",
                       "settings": {
-                        "heading": "Can I have my order delivered to my work address?",
+                        "heading": "Can I change or cancel my order?",
                         "open_by_default": false,
                         "icon": "none",
                         "width": 20
                       },
                       "blocks": {
-                        "text_yAQhJ4": {
+                        "text_gWmHMk": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                            "text": "<p>Once your order has been placed, we begin preparing it right away to ensure timely delivery. This means we’re unable to make changes or cancel your order.</p><p>If you need further assistance, our Customer Care team is here to help.</p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "left",
@@ -1415,46 +1533,7 @@
                         }
                       },
                       "block_order": [
-                        "text_yAQhJ4"
-                      ]
-                    },
-                    "accordion_row_iFYMdr": {
-                      "type": "_accordion-row",
-                      "settings": {
-                        "heading": "Will I need to sign for my order?",
-                        "open_by_default": false,
-                        "icon": "none",
-                        "width": 20
-                      },
-                      "blocks": {
-                        "text_3w749A": {
-                          "type": "text",
-                          "settings": {
-                            "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
-                            "width": "100%",
-                            "max_width": "none",
-                            "alignment": "left",
-                            "type_preset": "rte",
-                            "font": "var(--font-body--family)",
-                            "font_size": "1rem",
-                            "line_height": "normal",
-                            "letter_spacing": "normal",
-                            "case": "none",
-                            "wrap": "pretty",
-                            "color": "var(--color-foreground)",
-                            "background": false,
-                            "background_color": "#00000026",
-                            "corner_radius": 0,
-                            "padding-block-start": 0,
-                            "padding-block-end": 0,
-                            "padding-inline-start": 0,
-                            "padding-inline-end": 0
-                          },
-                          "blocks": {}
-                        }
-                      },
-                      "block_order": [
-                        "text_3w749A"
+                        "text_gWmHMk"
                       ]
                     },
                     "accordion_row_BD7YXe": {
@@ -1469,7 +1548,7 @@
                         "text_PnX4xD": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                            "text": "<p>We know you’re looking forward to your order, and we’re here to help you track it down. There are a few reasons your delivery may be taking a little longer than expected.</p><p>Your order may still be in transit, especially during peak periods or promotional events when dispatch times can be slightly extended. It’s also worth checking your tracking details, as your parcel may be delayed with the carrier or awaiting delivery.</p><p>If your order includes multiple items, they may arrive separately depending on availability.</p><p>For the most up-to-date information, we recommend checking your shipping confirmation email or tracking link. If you still need assistance, our Customer Care team will be happy to help.</p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "left",
@@ -1499,7 +1578,7 @@
                     "accordion_row_xnhLYJ": {
                       "type": "_accordion-row",
                       "settings": {
-                        "heading": "What is Click and Collect?",
+                        "heading": "Can I purchase a gift card?",
                         "open_by_default": false,
                         "icon": "none",
                         "width": 20
@@ -1508,7 +1587,7 @@
                         "text_m7mX3K": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                            "text": "<p>At this time, gift cards are not available for purchase on our US site. If you’re looking for a thoughtful alternative, explore our latest collections to find something she’ll truly love.</p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "left",
@@ -1534,14 +1613,136 @@
                       "block_order": [
                         "text_m7mX3K"
                       ]
+                    },
+                    "accordion_row_qaHN8T": {
+                      "type": "_accordion-row",
+                      "settings": {
+                        "heading": "Do you offer returns or exchanges?",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
+                      },
+                      "blocks": {
+                        "text_yAQhJ4": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>We understand that sometimes things don’t work out. We offer returns in line with our returns policy, provided items are in their original condition.For full details on how to return your item or request an exchange, please visit our returns page or reach out to our Customer Care team.</p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_yAQhJ4"
+                      ]
+                    },
+                    "accordion_row_iFYMdr": {
+                      "type": "_accordion-row",
+                      "settings": {
+                        "heading": "I have returned an item, when can I expect my refund?",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
+                      },
+                      "blocks": {
+                        "text_3w749A": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Returns typically take three to seven business days to arrive at our warehouse. Once received, your refund will be processed within seven business days.</p><p>You’ll receive a confirmation email as soon as your refund has been completed, with funds expected to appear in your account within three to five business days thereafter.</p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_3w749A"
+                      ]
+                    },
+                    "accordion_row_PU8Hdp": {
+                      "type": "_accordion-row",
+                      "settings": {
+                        "heading": "How can i enjoy complimentary returns on my order?",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
+                      },
+                      "blocks": {
+                        "text_EFF6zX": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>You can enjoy complimentary returns by selecting the $1.98 free returns option at checkout. This ensures your item can be returned at no additional cost, avoiding standard return shipping and handling fees. If this option is not selected, returns remain available, however a $10 handling fee will apply. Please note, some items, including final sale styles, may be excluded in accordance with our returns policy.<br/><br/></p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_EFF6zX"
+                      ]
                     }
                   },
                   "block_order": [
+                    "accordion_row_GHB4cz",
+                    "accordion_row_VxbTUn",
+                    "accordion_row_DCexEx",
                     "accordion_row_aLBdR3",
+                    "accordion_row_TwjUf4",
+                    "accordion_row_BD7YXe",
+                    "accordion_row_xnhLYJ",
                     "accordion_row_qaHN8T",
                     "accordion_row_iFYMdr",
-                    "accordion_row_BD7YXe",
-                    "accordion_row_xnhLYJ"
+                    "accordion_row_PU8Hdp"
                   ]
                 }
               },
