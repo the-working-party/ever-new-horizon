@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Le Jardan</p>",
+            "text": "<p>New Wave</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -69,7 +69,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Shop Collection",
-            "link": "shopify://collections/dresses",
+            "link": "shopify://collections",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
             "width": "fit-content",
@@ -89,13 +89,13 @@
       "settings": {
         "media_type_1": "video",
         "image_1": "shopify://shop_images/imgi_33_Blog_Landscape_1380x776-1_8.jpg",
-        "video_1": "shopify://files/videos/FEB_SH_Homepage_Test_V2.mp4",
-        "media_type_2": "image",
+        "video_1": "shopify://files/videos/HERO_APRIL_NH_OVERARCHING_16x9.mp4",
+        "media_type_2": "video",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "",
+        "link": "shopify://collections",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -557,7 +557,7 @@
             "color_scheme": "scheme-5",
             "background_media": "image",
             "video_position": "cover",
-            "background_image": "shopify://shop_images/995587240b5c270673c6970820518dafc124bfb9.jpg",
+            "background_image": "shopify://shop_images/Duo-1-DT.jpg",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
@@ -567,7 +567,7 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
-            "link": "",
+            "link": "shopify://collections/dresses",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
             "padding-block-start": 24,
@@ -579,7 +579,7 @@
             "text_XRkcfz": {
               "type": "text",
               "settings": {
-                "text": "<p>Dresses</p>",
+                "text": "<p><a href=\"/collections/dresses\" title=\"Dresses\">Dresses</a></p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "center",
@@ -605,7 +605,7 @@
               "type": "button",
               "settings": {
                 "label": "SHOP NOW",
-                "link": "shopify://collections/all",
+                "link": "shopify://collections/dresses",
                 "open_in_new_tab": false,
                 "style_class": "link",
                 "width": "fit-content",
@@ -642,7 +642,7 @@
             "color_scheme": "scheme-5",
             "background_media": "image",
             "video_position": "cover",
-            "background_image": "shopify://shop_images/1ef2e070f65c96a9a40c54cddb2d6ad8f6b1c34b.jpg",
+            "background_image": "shopify://shop_images/Duo-2-DT.jpg",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
@@ -652,7 +652,7 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
-            "link": "",
+            "link": "shopify://collections/occasionwear",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
             "padding-block-start": 24,
@@ -664,7 +664,7 @@
             "text_TwwjxL": {
               "type": "text",
               "settings": {
-                "text": "<p>Tailoring</p>",
+                "text": "<p>Occasionwear</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "center",
@@ -690,7 +690,7 @@
               "type": "button",
               "settings": {
                 "label": "SHOP NOW",
-                "link": "shopify://collections/all",
+                "link": "shopify://collections/occasionwear",
                 "open_in_new_tab": false,
                 "style_class": "link",
                 "width": "fit-content",
@@ -751,8 +751,8 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-end",
+            "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
             "width": "fill",
             "custom_width": 100,
@@ -764,7 +764,7 @@
             "color_scheme": "scheme-5",
             "background_media": "image",
             "video_position": "cover",
-            "background_image": "shopify://shop_images/eb83d331a2acb51746438c9002b87bb79c7e20aa.jpg",
+            "background_image": "shopify://shop_images/Feature-1-DT_da53d01b-fac4-49e1-aa75-3b6ae3e93e2d.jpg",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
@@ -783,49 +783,122 @@
             "padding-inline-end": 24
           },
           "blocks": {
-            "text_Ewmedt": {
-              "type": "text",
+            "group_MFhXzY": {
+              "type": "group",
+              "name": "t:names.group",
               "settings": {
-                "text": "<p>Occasion</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "center",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 24,
+                "width": "custom",
+                "custom_width": 30,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {}
-            },
-            "button_UUndrb": {
-              "type": "button",
-              "settings": {
-                "label": "SHOP NOW",
-                "link": "shopify://collections/occasion-dresses",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+              "blocks": {
+                "text_DB8fx3": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Quiet Luxury</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "center",
+                    "type_preset": "h2",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_AiAP9X": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Follow the tide to new arrivals</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h5",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "button_tTqxqL": {
+                  "type": "button",
+                  "disabled": true,
+                  "settings": {
+                    "label": "SHOP NOW",
+                    "link": "shopify://collections/occasion-dresses",
+                    "open_in_new_tab": false,
+                    "style_class": "link",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                }
               },
-              "blocks": {}
+              "block_order": [
+                "text_DB8fx3",
+                "text_AiAP9X",
+                "button_tTqxqL"
+              ]
             }
           },
           "block_order": [
-            "text_Ewmedt",
-            "button_UUndrb"
+            "group_MFhXzY"
           ]
         }
       },
@@ -979,7 +1052,7 @@
               "type": "collection-card",
               "name": "t:names.collection_card",
               "settings": {
-                "collection": "dresses",
+                "collection": "day-dresses",
                 "placement": "below_image",
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
@@ -1041,7 +1114,7 @@
               "type": "collection-card",
               "name": "t:names.collection_card",
               "settings": {
-                "collection": "pants",
+                "collection": "tops",
                 "placement": "below_image",
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
@@ -1103,7 +1176,7 @@
               "type": "collection-card",
               "name": "t:names.collection_card",
               "settings": {
-                "collection": "bridesmaid-dresses",
+                "collection": "bottoms",
                 "placement": "below_image",
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
@@ -1165,7 +1238,7 @@
               "type": "collection-card",
               "name": "t:names.collection_card",
               "settings": {
-                "collection": "bridal-shower",
+                "collection": "workwear",
                 "placement": "below_image",
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
@@ -1723,7 +1796,7 @@
         "text_w8eDgU": {
           "type": "text",
           "settings": {
-            "text": "<h3>Day Dresses</h3>",
+            "text": "<h3>New Arrivals</h3>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -1750,7 +1823,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "DISCOVER MORE",
-            "link": "shopify://collections/all",
+            "link": "shopify://collections/new-arrivals",
             "open_in_new_tab": false,
             "style_class": "link",
             "width": "fit-content",
@@ -1768,13 +1841,14 @@
       "name": "Hero Banner",
       "settings": {
         "media_type_1": "image",
+        "image_1": "shopify://shop_images/Feature-2-DT-NoText.jpg",
         "video_1": "shopify://files/videos/FEB_SH_Homepage_Test_V2.mp4",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "",
+        "link": "shopify://collections/new-arrivals",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -1839,7 +1913,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<p>Party Dresses</p>",
+                "text": "<p>Discover Event Dresses</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -2088,7 +2162,7 @@
       },
       "name": "Product Carousel",
       "settings": {
-        "collection": "dresses",
+        "collection": "event-dresses",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 16,
@@ -2281,6 +2355,7 @@
       "blocks": {
         "text_VULWEJ": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<h3>Denim</h3>",
             "width": "fit-content",
@@ -2307,6 +2382,7 @@
         "button_i433Nb": {
           "type": "button",
           "name": "t:names.button",
+          "disabled": true,
           "settings": {
             "label": "DISCOVER MORE",
             "link": "shopify://collections/all",
@@ -2327,13 +2403,13 @@
       "name": "Hero Banner",
       "settings": {
         "media_type_1": "video",
-        "video_1": "shopify://files/videos/FEB_SH_Homepage_Test_V2.mp4",
+        "video_1": "shopify://files/videos/FEATURE_APRIL_NH_PROMO_16x9.mp4",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "",
+        "link": "shopify://collections",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -3350,6 +3426,7 @@
         "group_d7KzjV",
         "group_LyW4My"
       ],
+      "disabled": true,
       "name": "Social",
       "settings": {
         "content_direction": "column",
