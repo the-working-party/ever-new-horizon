@@ -55,7 +55,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/a741c62fc7371fbe512b7461272b62d2470e9b90.jpg",
+        "image_1": "shopify://shop_images/Hero_3000x1996_V1.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -277,7 +277,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/089c3754f45c80b7a28237311fd37687c54f23bf.jpg",
+                "image": "shopify://shop_images/Our_Culture_1200x1500_V1.jpg",
                 "link": "",
                 "image_ratio": "landscape",
                 "width": "fill",
@@ -397,7 +397,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>We trade as Forever New in over 25 countries and as Ever New in Canada, the US and the Philippines with almost 400 retail and concession stores globally.<br/><br/>While we’re a global brand, behind the scenes we’re a collective of close friends: fashion enthusiasts, designers and in-store experts, who work non-stop to help our customers embrace and elevate their own personal style.<br/><br/>Each collection is designed in Australia with a unique blend of seasonal trends, feminine silhouettes and of the moment detailing, giving you the confidence to feel beautiful in every moment.</p>",
+                "text": "<p>We trade as in over 25 countries and as Ever New in Canada, the US and the Philippines with almost 400 retail and concession stores globally.<br/><br/>While we’re a global brand, behind the scenes we’re a collective of close friends: fashion enthusiasts, designers and in-store experts, who work non-stop to help our customers embrace and elevate their own personal style.<br/><br/>Each collection is designed in Australia with a unique blend of seasonal trends, feminine silhouettes and of the moment detailing, giving you the confidence to feel beautiful in every moment.</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -2642,7 +2642,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/089c3754f45c80b7a28237311fd37687c54f23bf.jpg",
+                "image": "shopify://shop_images/About_Section_1200x1500_V1.jpg",
                 "link": "",
                 "image_ratio": "landscape",
                 "width": "fill",

@@ -12,15 +12,41 @@
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
+        "text_dKBLAN": {
+          "type": "text",
+          "name": "Body",
+          "settings": {
+            "text": "<p>Spring Summer '26.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "text_YLPk4p": {
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>New Wave</p>",
+            "text": "<p><em>NEW WAVE</em></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h3",
+            "type_preset": "h1",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -42,11 +68,11 @@
           "type": "text",
           "name": "Body",
           "settings": {
-            "text": "<p>Escape to another world with our latest collection.</p>",
+            "text": "<p>From Australia, with love. US, we’ve arrived.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "paragraph",
+            "type_preset": "h4",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -69,7 +95,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Shop Collection",
-            "link": "shopify://collections",
+            "link": "shopify://collections/new-arrivals",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
             "width": "fit-content",
@@ -81,6 +107,7 @@
         }
       },
       "block_order": [
+        "text_dKBLAN",
         "text_YLPk4p",
         "text_EniAjF",
         "button_H9gpTf"
@@ -95,7 +122,7 @@
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "shopify://collections",
+        "link": "shopify://collections/new-arrivals",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -557,7 +584,7 @@
             "color_scheme": "scheme-5",
             "background_media": "image",
             "video_position": "cover",
-            "background_image": "shopify://shop_images/Duo-1-DT.jpg",
+            "background_image": "shopify://shop_images/Duo-1-DT_5.jpg",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
@@ -642,7 +669,7 @@
             "color_scheme": "scheme-5",
             "background_media": "image",
             "video_position": "cover",
-            "background_image": "shopify://shop_images/Duo-2-DT.jpg",
+            "background_image": "shopify://shop_images/Duo-2-DT_3.jpg",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
@@ -774,7 +801,7 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
-            "link": "",
+            "link": "shopify://collections/new-arrivals",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
             "padding-block-start": 24,
@@ -1048,68 +1075,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "collection_card_fdcPpx": {
-              "type": "collection-card",
-              "name": "t:names.collection_card",
-              "settings": {
-                "collection": "day-dresses",
-                "placement": "below_image",
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "collection_card_gap": 16,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0
-              },
-              "blocks": {
-                "collection_title_xEPfkw": {
-                  "type": "collection-title",
-                  "settings": {
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h6",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground-heading)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 16,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "collection-card-image": {
-                  "type": "_collection-card-image",
-                  "static": true,
-                  "settings": {
-                    "image_ratio": "portrait",
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "collection_title_xEPfkw"
-              ]
-            },
             "collection_card_pHahzY": {
               "type": "collection-card",
               "name": "t:names.collection_card",
@@ -1170,6 +1135,68 @@
               },
               "block_order": [
                 "collection_title_jaH6re"
+              ]
+            },
+            "collection_card_fdcPpx": {
+              "type": "collection-card",
+              "name": "t:names.collection_card",
+              "settings": {
+                "collection": "day-dresses",
+                "placement": "below_image",
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "collection_card_gap": 16,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0
+              },
+              "blocks": {
+                "collection_title_xEPfkw": {
+                  "type": "collection-title",
+                  "settings": {
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h6",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground-heading)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 16,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "collection-card-image": {
+                  "type": "_collection-card-image",
+                  "static": true,
+                  "settings": {
+                    "image_ratio": "portrait",
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "collection_title_xEPfkw"
               ]
             },
             "collection_card_eG4Dqn": {
@@ -1238,7 +1265,7 @@
               "type": "collection-card",
               "name": "t:names.collection_card",
               "settings": {
-                "collection": "workwear",
+                "collection": "occasionwear",
                 "placement": "below_image",
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
@@ -1298,8 +1325,8 @@
             }
           },
           "block_order": [
-            "collection_card_fdcPpx",
             "collection_card_pHahzY",
+            "collection_card_fdcPpx",
             "collection_card_eG4Dqn",
             "collection_card_PAVfUx"
           ]
@@ -1796,7 +1823,7 @@
         "text_w8eDgU": {
           "type": "text",
           "settings": {
-            "text": "<h3>New Arrivals</h3>",
+            "text": "<h3><a href=\"/collections/day-dresses\" title=\"Day Dresses\">Day Dresses</a></h3>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -1823,7 +1850,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "DISCOVER MORE",
-            "link": "shopify://collections/new-arrivals",
+            "link": "shopify://collections/day-dresses",
             "open_in_new_tab": false,
             "style_class": "link",
             "width": "fit-content",
@@ -1841,14 +1868,14 @@
       "name": "Hero Banner",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/Feature-2-DT-NoText.jpg",
+        "image_1": "shopify://shop_images/Feature-2-DT-NoText-2_1.jpg",
         "video_1": "shopify://files/videos/FEB_SH_Homepage_Test_V2.mp4",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "shopify://collections/new-arrivals",
+        "link": "shopify://collections/day-dresses",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -2409,7 +2436,7 @@
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "shopify://collections",
+        "link": "shopify://collections/new-arrivals",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,

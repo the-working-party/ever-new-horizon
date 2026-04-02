@@ -673,7 +673,7 @@
                     "accordion_row_aLBdR3": {
                       "type": "_accordion-row",
                       "settings": {
-                        "heading": "Placing an Order for Collection at a Parcel Locker or via Parcel Collect",
+                        "heading": "How can I track my order?",
                         "open_by_default": false,
                         "icon": "none",
                         "width": 20
@@ -682,7 +682,7 @@
                         "text_dKPz47": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                            "text": "<p>Once your order has been dispatched, you’ll receive a<br/>shipping confirmation email with a tracking link. You can use this link at any<br/>time to follow your order’s journey right to your door.</p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "left",
@@ -712,7 +712,7 @@
                     "accordion_row_qaHN8T": {
                       "type": "_accordion-row",
                       "settings": {
-                        "heading": "Can I have my order delivered to my work address?",
+                        "heading": "Where do you ship?",
                         "open_by_default": false,
                         "icon": "none",
                         "width": 20
@@ -721,7 +721,7 @@
                         "text_yAQhJ4": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                            "text": "<p>We currently ship across the United States, bringing our latest collections directly to your door. Whether you’re planning a special moment or refreshing your everyday wardrobe, your order is just a few clicks away.<br/><br/></p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "left",
@@ -751,7 +751,7 @@
                     "accordion_row_iFYMdr": {
                       "type": "_accordion-row",
                       "settings": {
-                        "heading": "Will I need to sign for my order?",
+                        "heading": "What happens if I’m not home for delivery?",
                         "open_by_default": false,
                         "icon": "none",
                         "width": 20
@@ -760,7 +760,7 @@
                         "text_3w749A": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                            "text": "<p>If you’re not available at the time of delivery, the courier may leave your parcel in a safe place or provide instructions for redelivery. This may vary depending on the carrier.<br/><br/></p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "left",
@@ -799,7 +799,7 @@
                         "text_PnX4xD": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                            "text": "<p>We know you’re looking forward to your order, and we’re here<br/>to help you track it down. There are a few reasons your delivery may be taking<br/>a little longer than expected.</p><p>Your order may still be in transit, especially during peak<br/>periods or promotional events when dispatch times can be slightly extended.<br/>It’s also worth checking your tracking details, as your parcel may be delayed<br/>with the carrier or awaiting delivery.</p><p>If your order includes multiple items, they may arrive<br/>separately depending on availability.</p><p>For the most up-to-date information, we recommend checking<br/>your shipping confirmation email or tracking link. If you still need<br/>assistance, our Customer Care team will be happy to help.</p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "left",
@@ -829,7 +829,7 @@
                     "accordion_row_xnhLYJ": {
                       "type": "_accordion-row",
                       "settings": {
-                        "heading": "What is Click and Collect?",
+                        "heading": "Can I change my delivery address after placing an order?",
                         "open_by_default": false,
                         "icon": "none",
                         "width": 20
@@ -838,7 +838,7 @@
                         "text_m7mX3K": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                            "text": "<p>Once your order has been placed, we’re unable to make changes to the delivery address. We recommend reviewing your details carefully at checkout.<br/><br/></p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "left",
