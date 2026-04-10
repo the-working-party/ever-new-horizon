@@ -2357,6 +2357,27 @@
     ]
   },
   {
+    "name": "Rakuten",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Rakuten"
+      },
+      {
+        "type": "checkbox",
+        "id": "rakuten_global_script_enabled",
+        "label": "Enable Rakuten Global Script",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "rakuten_conversion_script_enabled",
+        "label": "Enable Rakuten Conversion Script",
+        "default": true
+      }
+    ]
+  },
+  {
     "name": "Marker",
     "settings": [
       {

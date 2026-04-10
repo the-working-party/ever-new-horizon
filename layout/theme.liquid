@@ -37,7 +37,10 @@
     {% endif %}
 
     {{ content_for_header }}
-    <meta name="google-site-verification" content="CqJtwLer-csM2rTMF7GZPOWPA0jaTHx2j1CoFVW2rlM" />
+    <meta name="google-site-verification" content="CqJtwLer-csM2rTMF7GZPOWPA0jaTHx2j1CoFVW2rlM">
+    {% if settings.rakuten_global_script_enabled == true %}
+      {% render 'rakuten-global' %}
+    {% endif %}
   </head>
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
@@ -127,5 +130,9 @@
     {% endif %}
 
     {% render 'equal-web' %}
+
+    {% if settings.rakuten_conversion_script_enabled == true %}
+      {% render 'rakuten-conversion' %}
+    {% endif %}
   </body>
 </html>
