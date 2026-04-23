@@ -1,3 +1,14 @@
+{% doc %}
+  Renders the Rakuten Advertising global loader script (SPI v3.4.8, MID 115849).
+  Reads/sets the Rakuten landing cookies used by the conversion Custom Pixel in Shopify admin.
+  Gated by the `settings.rakuten_global_script_enabled` theme setting.
+
+  @example
+  {% if settings.rakuten_global_script_enabled %}
+    {% render 'rakuten-global' %}
+  {% endif %}
+{% enddoc %}
+
 <!-- START Rakuten Advertising Tracking -->
 <script type="text/javascript">
   (function (url) {
